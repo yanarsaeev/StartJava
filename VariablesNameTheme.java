@@ -179,7 +179,7 @@ public class VariablesNameTheme {
 
         // новый идентификатор клиента
         int newCid = 23021;
-        System.out.println("\nновый идентификатор клиента " + newClientId);
+        System.out.println("\nновый идентификатор клиента " + newCid);
 
         // кодировка american standard code for information interchange
         String ascii = "american standard code for information interchange";
