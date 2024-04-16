@@ -10,24 +10,24 @@ public class VariablesNameTheme {
         System.out.println("\nсумма чисел: " + sumDigits);
 
         // произведение цифр
-        int productOfNumbers = 7 * 7;
-        System.out.println("\nпроизведение цифр: " + productOfNumbers);
+        int productOfNums = 7 * 7;
+        System.out.println("\nпроизведение цифр: " + productOfNums);
 
         // максимальное число
         int maxNum = 2147483647;
         System.out.println("\nмаксимальное число: " + maxNum);
 
         // количество десятков
-        int numberOfTens = 10;
-        System.out.println("\nколичество десятков: " + numberOfTens);
+        int numOfTens = 10;
+        System.out.println("\nколичество десятков: " + numOfTens);
 
         // вес собаки
         double dogWeight = 31.3;
         System.out.println("\nвес собаки: " + dogWeight);
 
         // исходное число
-        int originalNumber = 77;
-        System.out.println("\nисходное число: " + originalNumber);
+        int originalNum = 77;
+        System.out.println("\nисходное число: " + originalNum);
 
         // процент по вкладу
         int interestOnDeposit = 10;
@@ -46,8 +46,8 @@ public class VariablesNameTheme {
         System.out.println("\nТип сообщения: " + messageType);
 
         // число нулей
-        int numberZeros = 100;
-        System.out.println("\nчисло нулей: " + numberZeros);
+        int numZeros = 100;
+        System.out.println("\nчисло нулей: " + numZeros);
 
         // уникальное число
         int uniqueNum = 369;
@@ -90,8 +90,8 @@ public class VariablesNameTheme {
         System.out.println("\nОкончание диапазона: " + endOfRange);
 
         // полное имя работника месяца
-        String employeeFullname = "Максимов Максим Максимович";
-        System.out.println("\nПолное имя работника месяца: " + employeeFullname);
+        String employeeOfMonthFullname = "Максимов Максим Максимович";
+        System.out.println("\nПолное имя работника месяца: " + employeeOfMonthFullname);
 
         // заголовок электронной книги
         String ebookTitle = "Java";
@@ -128,8 +128,8 @@ public class VariablesNameTheme {
         System.out.println("\nкомпьютер включен? " + isComputerOn);
 
         // есть равные цифры?
-        boolean hasEqualNumbers = false;
-        System.out.println("\nесть равные цифры? " + hasEqualNumbers);
+        boolean hasEqualNums = false;
+        System.out.println("\nесть равные цифры? " + hasEqualNums);
 
         // создано?
         boolean isCreated = true;
@@ -148,8 +148,8 @@ public class VariablesNameTheme {
         System.out.println("\nновое? " + isNew);
 
         // Электронная почта действительная?
-        boolean isEmailValid = true;
-        System.out.println("\nЭлектронная почта действительная? " + isEmailValid);
+        boolean isValidEmail = true;
+        System.out.println("\nЭлектронная почта действительная? " + isValidEmail);
 
         // Имеются уникальные строки?
         boolean hasUniqueStrings = false;
@@ -158,27 +158,27 @@ public class VariablesNameTheme {
         System.out.println("\n\n3. Аббревиатуры");
 
         // старый universally unique identifier
-        int uui = 83329;
-        System.out.println("\nстарый universally unique identifier " + uui);
+        int uuidOld = 83329;
+        System.out.println("\nстарый universally unique identifier " + uuidOld);
 
         // производитель оперативной памяти
-        String manufacturerRam = "MSI";
-        System.out.println("\nпроизводитель оперативной памяти " + manufacturerRam);
+        String ramManufacturer = "MSI";
+        System.out.println("\nпроизводитель оперативной памяти " + ramManufacturer);
 
         // емкость жесткого диска
-        int capacityHdd = 1024;
-        System.out.println("\nемкость жесткого диска " + capacityHdd);
+        int hddCapacity = 1024;
+        System.out.println("\nемкость жесткого диска " + hddCapacity);
 
         // протокол передачи гипертекста
         String http = "HTTP";
         System.out.println("\nпротокол передачи гипертекста " + http);
 
-        // единый указатель ресурсов
-        String url = "uniform resource locator";
-        System.out.println("\nединый указатель ресурсов - " + url);
+        // сокращенный uniform resource locator
+        String urlShortened = "uniform resource locator";
+        System.out.println("\nсокращенный uniform resource locator - " + urlShortened);
 
         // новый идентификатор клиента
-        int newClientId = 23021;
+        int newCid = 23021;
         System.out.println("\nновый идентификатор клиента " + newClientId);
 
         // кодировка american standard code for information interchange
