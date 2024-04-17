@@ -159,7 +159,7 @@ public class VariablesNameTheme {
 
         // старый universally unique identifier
         int oldUuid = 83329;
-        System.out.println("\nстарый universally unique identifier " + uuidOld);
+        System.out.println("\nстарый universally unique identifier " + oldUuid);
 
         // производитель оперативной памяти
         String ramManufacturer = "MSI";
@@ -175,7 +175,7 @@ public class VariablesNameTheme {
 
         // сокращенный uniform resource locator
         String shortUrl = "uniform resource locator";
-        System.out.println("\nсокращенный uniform resource locator - " + urlShortened);
+        System.out.println("\nсокращенный uniform resource locator - " + shortUrl);
 
         // новый идентификатор клиента
         int newCid = 23021;
