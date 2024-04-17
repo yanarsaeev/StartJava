@@ -158,7 +158,7 @@ public class VariablesNameTheme {
         System.out.println("\n\n3. Аббревиатуры");
 
         // старый universally unique identifier
-        int uuidOld = 83329;
+        int oldUuid = 83329;
         System.out.println("\nстарый universally unique identifier " + uuidOld);
 
         // производитель оперативной памяти
@@ -174,7 +174,7 @@ public class VariablesNameTheme {
         System.out.println("\nпротокол передачи гипертекста " + http);
 
         // сокращенный uniform resource locator
-        String urlShortened = "uniform resource locator";
+        String shortUrl = "uniform resource locator";
         System.out.println("\nсокращенный uniform resource locator - " + urlShortened);
 
         // новый идентификатор клиента
