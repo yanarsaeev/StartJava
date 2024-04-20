@@ -1,23 +1,23 @@
 public class VariablesTheme {
     public static void main(String[] args) {
         System.out.println("1. Вывод характеристик компьютера");
-        int gpu = 1552;
-        System.out.println("\nЧастота видеопроцессора: " + gpu);
+        int gpuFrequency = 1552;
+        System.out.println("\nЧастота видеопроцессора: " + gpuFrequency);
 
         long powerUnit = 1000;
         System.out.println("\nМощность БП: " + powerUnit);
 
-        short ram = 64;
-        System.out.println("\nОбъем оперативной памяти: " + ram);
+        short ramSize = 64;
+        System.out.println("\nОбъем оперативной памяти: " + ramSize);
 
         byte numCores = 8;
         System.out.println("\nКоличество ядер: " + numCores);
 
-        float cpu = 1.6f;
-        System.out.println("\nЧастота процессора: " + cpu);
+        float cpuFrequency = 1.6f;
+        System.out.println("\nЧастота процессора: " + cpuFrequency);
 
-        double hdd = 500.0;
-        System.out.println("\nОбъем жесткого диска: " + hdd);
+        double hddSize = 500.0;
+        System.out.println("\nОбъем жесткого диска: " + hddSize);
 
         boolean hasWaterCooling = true;
         System.out.println("\nЕсть водяное охлаждение? " + hasWaterCooling);
