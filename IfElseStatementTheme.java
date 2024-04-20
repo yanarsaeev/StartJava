@@ -22,11 +22,34 @@ public class IfElseStatementTheme {
             System.out.println("Ваш рост не выше среднестатистического");
         }
 
-        char firstLetterName = "Magomed".charAt(0);
+        char firstLetterName = "Ali".charAt(0);
         if(firstLetterName == 'M') {
-            
+            System.out.println("Имя начинается с M");
         } else if(firstLetterName == 'I') {
-
+            System.out.println("Имя начинается с I");
         } else {
             System.out.println("Имя НЕ начинается на буквы M или I.");
         }
+
+
+        System.out.println("\n\n2. Поиск большего числа");
+        int a = 10;
+        int b = 5;
+
+        if (a > b) {
+            System.out.println(a + " больше " + b);
+        } else if (a < b) {
+            System.out.println(a + " меньше " + b);
+        } else {
+            System.out.println("Числа равны");
+        }
+
+
+        System.out.println("\n\n3. Проверка числа");
+        int num = 77;
+        if (num == 0) {
+            System.out.println("Число 0");
+            System.exit(0);
+        }
+    }
+}
