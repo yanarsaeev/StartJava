@@ -31,7 +31,6 @@ public class IfElseStatementTheme {
             System.out.println("Имя НЕ начинается на буквы M или I.");
         }
 
-
         System.out.println("\n\n2. Поиск большего числа");
         int a = 10;
         int b = 5;
@@ -44,12 +43,55 @@ public class IfElseStatementTheme {
             System.out.println("Числа равны");
         }
 
-
         System.out.println("\n\n3. Проверка числа");
-        int num = 77;
+        int num = -12;
         if (num == 0) {
             System.out.println("Число 0");
             System.exit(0);
+        } else if (num < 0) {
+            if (num % 2 == 0) {
+                System.out.println(num + " является отрицательным и четным");
+            } else {
+                System.out.println(num + " является отрицательным и нечетным");
+            }
+        } else if (num > 0) {
+            if(num % 2 == 0) {
+                System.out.println(num + " является положительным и четным");
+            } else {
+                System.out.println(num + " является положительным и нечетным");
+            }
+        }
+
+        System.out.println("\n\n4. Поиск одинаковых цифр в числах");
+
+
+        System.out.println("\n\n5. Определение символа по его коду");
+        char letter = '\u0031';
+        if (letter >= 'a' && letter <= 'z') {
+            System.out.println("Символ " + letter + " является маленькой буквой");
+        } else if(letter >= 'A' && letter <= 'Z') {
+            System.out.println("Символ " + letter + " является большой буквой");
+        } else if (letter >= '0' && letter <= '9') {
+            System.out.println("Символ " + letter + " является цифрой");
+        } else {
+            System.out.println("Символ " + letter + " не является цифрой или буквой");
+        }
+
+        System.out.println("\n\n6. Подсчет суммы вклада и начисленных банком %");
+        int contribution = 150000;
+
+        if (contribution < 100000) {
+            System.out.println("Сумма вклада: " + contribution + 
+                    "\nСумма начисленного процента: " + (contribution * 0.05) + 
+                    "\nИтоговая сумма с %: " + (contribution + (contribution * 0.05)));
+        } else if (contribution >= 100000 && contribution <= 300000) {
+            System.out.println("Сумма вклада: " + contribution + 
+                    "\nСумма начисленного процента: " + (contribution * 0.07) + 
+                    "\nИтоговая сумма с %: " + (contribution + (contribution * 0.07)));
+        } else if (contribution > 300000) {
+            System.out.println("Сумма вклада: " + contribution + 
+                    "\nСумма начисленного процента: " + (contribution * 0.1) + 
+                    "\nИтоговая сумма с %: " + (contribution + (contribution * 0.1)));
         }
     }
 }
