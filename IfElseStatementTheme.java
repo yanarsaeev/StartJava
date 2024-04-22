@@ -63,8 +63,35 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n\n4. Поиск одинаковых цифр в числах");
+        int num1 = 123;
+        int num2 = 223;
 
+        int firstCategoryNum1 = num1 / 100;
+        int secondCategoryNum1 = (num1 / 10) % 10;
+        int thirthCategoryNum1 = num1 % 10;
 
+        int firstCategoryNum2 = num2 / 100;
+        int secondCategoryNum2 = (num2 / 10) % 10;
+        int thirthCategoryNum2 = num2 % 10;
+
+        System.out.println("Исходные числа: " + num1 + " и " + num2);
+
+        if (firstCategoryNum1 == firstCategoryNum2) {
+            System.out.println("Одинаковые цифры: " + firstCategoryNum1 + " и " + firstCategoryNum2 + " в 1-ом разряде.");
+        }
+
+        if (secondCategoryNum1 == secondCategoryNum2) {
+            System.out.println("Одинаковые цифры: " + secondCategoryNum1 + " и " + secondCategoryNum2 + " во 2-ом разряде.");
+        }
+
+        if (thirthCategoryNum1 == thirthCategoryNum2) {
+            System.out.println("Одинаковые цифры: " + thirthCategoryNum1 + " и " + thirthCategoryNum2 + " в 3-ем разряде.");
+        }
+
+        if(firstCategoryNum1 != firstCategoryNum2 && secondCategoryNum1 != secondCategoryNum2 && thirthCategoryNum1 != thirthCategoryNum2) {
+            System.out.println("Равных цифр нет");
+        }
+ 
         System.out.println("\n\n5. Определение символа по его коду");
         char letter = '\u0031';
         if (letter >= 'a' && letter <= 'z') {
@@ -126,6 +153,15 @@ public class IfElseStatementTheme {
         System.out.println("Средний % по предметам: " + ((programmingPercent + historyPercent) / 2));
 
         System.out.println("\n\n8. Расчет годовой прибыли");
-        
+        int monthlyProductSales = 13000;
+        int rentRoom = 5000;
+        int costOfProduction = 9000;
+        int profit = (monthlyProductSales * 12) - ((rentRoom * 12) + (costOfProduction * 12));
+
+        if (profit >= 0) {
+            System.out.println("Прибыль за год: +" + profit);
+        } else {
+            System.out.println("Прибыль за год: " + profit);
+        }
     }
 }
