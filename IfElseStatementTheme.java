@@ -93,5 +93,39 @@ public class IfElseStatementTheme {
                     "\nСумма начисленного процента: " + (contribution * 0.1) + 
                     "\nИтоговая сумма с %: " + (contribution + (contribution * 0.1)));
         }
+
+        System.out.println("\n\n7. Определение оценки по предметам");
+        int historyPercent = 59;
+        int programmingPercent = 92;
+        int historyMark = 0;
+        int programmingMark = 0;
+
+        if (historyPercent <= 60) {
+            historyMark = 2;
+        } else if (historyPercent > 60 && historyPercent <= 73) {
+            historyMark = 3;
+        } else if (historyPercent > 73 && historyPercent <= 91) {
+            historyMark = 4;
+        } else if (historyPercent > 91) {
+             historyMark = 5;
+        }
+
+        if (programmingPercent <= 60) {
+            programmingMark = 2;
+        } else if (programmingPercent > 60 && programmingPercent <= 73) {
+            programmingMark = 3;
+        } else if (programmingPercent > 73 && programmingPercent <= 91) {
+            programmingMark = 4;
+        } else if (programmingPercent > 91) {
+             programmingMark = 5;
+        }
+
+        System.out.println("История: " + historyMark + 
+                "\nПрограммирование: " + programmingMark);
+        System.out.println("Средний балл оценок по предметам: " + ((programmingMark + historyMark) / 2));
+        System.out.println("Средний % по предметам: " + ((programmingPercent + historyPercent) / 2));
+
+        System.out.println("\n\n8. Расчет годовой прибыли");
+        
     }
 }
