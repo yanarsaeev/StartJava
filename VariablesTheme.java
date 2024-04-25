@@ -119,7 +119,7 @@ public class VariablesTheme {
         int ones = num % 10;
         int sum = hundred + ten + ones;
         int product = hundred * ten * ones;
-        System.out.println("Число " + num + " содержит:\n"+ 
+        System.out.println("Число " + num + " содержит:\n" + 
                 "  сотен - " + hundred + 
                 "\n  десяток - " + ten + 
                 "\n  единиц - " + ones + 
