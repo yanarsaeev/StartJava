@@ -30,8 +30,8 @@ public class VariablesNameTheme {
         System.out.println("\nисходное число: " + originalNum);
 
         // процент по вкладу
-        int interestOnDeposit = 10;
-        System.out.println("\nпроцент по вкладу: " + interestOnDeposit);
+        int interestRate = 10;
+        System.out.println("\nпроцент по вкладу: " + interestRate);
 
         // переменная хранит символ &
         char symbol = '&';
@@ -78,8 +78,8 @@ public class VariablesNameTheme {
         System.out.println("\nПункт меню: " + menuItem);
 
         // стоимость кофе на вынос
-        int costCoffeeGo = 250;
-        System.out.println("\nСтоимость кофе на вынос: " + costCoffeeGo);
+        int costCoffeeToGo = 250;
+        System.out.println("\nСтоимость кофе на вынос: " + costCoffeeToGo);
 
         // дата начала
         String startDate = "15.04.2024";
