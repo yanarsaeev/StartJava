@@ -2,30 +2,30 @@ public class IfElseStatementTheme {
     public static void main(String[] args) {
         System.out.println("1. Перевод псевдокода на язык Java");
         boolean isMale = true;
-        if(!isMale) {
+        if (!isMale) {
             System.out.println("Женский пол");
         } else {
             System.out.println("Мужской пол");
         }
 
         int age = 17;
-        if(age > 18) {
+        if (age > 18) {
             System.out.println("Welcome! Загрузка...");
         } else {
             System.out.println("Доступ только с 18-ти лет");
         }
 
         double length = 1.7;
-        if(length > 1.8) {
+        if (length > 1.8) {
             System.out.println("Ваш рост выше среднестатистического");
         } else {
             System.out.println("Ваш рост не выше среднестатистического");
         }
 
         char firstLetterName = "Ali".charAt(0);
-        if(firstLetterName == 'M') {
+        if (firstLetterName == 'M') {
             System.out.println("Имя начинается с M");
-        } else if(firstLetterName == 'I') {
+        } else if (firstLetterName == 'I') {
             System.out.println("Имя начинается с I");
         } else {
             System.out.println("Имя НЕ начинается на буквы M или I.");
@@ -55,7 +55,7 @@ public class IfElseStatementTheme {
                 System.out.println(num + " является отрицательным и нечетным");
             }
         } else if (num > 0) {
-            if(num % 2 == 0) {
+            if (num % 2 == 0) {
                 System.out.println(num + " является положительным и четным");
             } else {
                 System.out.println(num + " является положительным и нечетным");
@@ -88,7 +88,7 @@ public class IfElseStatementTheme {
             System.out.println("Одинаковые цифры: " + thirthCategoryNum1 + " и " + thirthCategoryNum2 + " в 3-ем разряде.");
         }
 
-        if(firstCategoryNum1 != firstCategoryNum2 && secondCategoryNum1 != secondCategoryNum2 && thirthCategoryNum1 != thirthCategoryNum2) {
+        if (firstCategoryNum1 != firstCategoryNum2 && secondCategoryNum1 != secondCategoryNum2 && thirthCategoryNum1 != thirthCategoryNum2) {
             System.out.println("Равных цифр нет");
         }
  
@@ -96,7 +96,7 @@ public class IfElseStatementTheme {
         char letter = '\u0031';
         if (letter >= 'a' && letter <= 'z') {
             System.out.println("Символ " + letter + " является маленькой буквой");
-        } else if(letter >= 'A' && letter <= 'Z') {
+        } else if (letter >= 'A' && letter <= 'Z') {
             System.out.println("Символ " + letter + " является большой буквой");
         } else if (letter >= '0' && letter <= '9') {
             System.out.println("Символ " + letter + " является цифрой");
