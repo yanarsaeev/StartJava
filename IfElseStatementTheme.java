@@ -68,27 +68,31 @@ public class IfElseStatementTheme {
 
         int firstCategoryNum1 = num1 / 100;
         int secondCategoryNum1 = (num1 / 10) % 10;
-        int thirthCategoryNum1 = num1 % 10;
+        final int thirthCategoryNum1 = num1 % 10;
 
         int firstCategoryNum2 = num2 / 100;
         int secondCategoryNum2 = (num2 / 10) % 10;
-        int thirthCategoryNum2 = num2 % 10;
+        final int thirthCategoryNum2 = num2 % 10;
 
         System.out.println("Исходные числа: " + num1 + " и " + num2);
 
         if (firstCategoryNum1 == firstCategoryNum2) {
-            System.out.println("Одинаковые цифры: " + firstCategoryNum1 + " и " + firstCategoryNum2 + " в 1-ом разряде.");
+            System.out.println("Одинаковые цифры: " + firstCategoryNum1 + 
+                    " и " + firstCategoryNum2 + " в 1-ом разряде.");
         }
 
         if (secondCategoryNum1 == secondCategoryNum2) {
-            System.out.println("Одинаковые цифры: " + secondCategoryNum1 + " и " + secondCategoryNum2 + " во 2-ом разряде.");
+            System.out.println("Одинаковые цифры: " + secondCategoryNum1 + 
+                    " и " + secondCategoryNum2 + " во 2-ом разряде.");
         }
 
         if (thirthCategoryNum1 == thirthCategoryNum2) {
-            System.out.println("Одинаковые цифры: " + thirthCategoryNum1 + " и " + thirthCategoryNum2 + " в 3-ем разряде.");
+            System.out.println("Одинаковые цифры: " + thirthCategoryNum1 + 
+                    " и " + thirthCategoryNum2 + " в 3-ем разряде.");
         }
 
-        if (firstCategoryNum1 != firstCategoryNum2 && secondCategoryNum1 != secondCategoryNum2 && thirthCategoryNum1 != thirthCategoryNum2) {
+        if (firstCategoryNum1 != firstCategoryNum2 && secondCategoryNum1 != secondCategoryNum2 && 
+                thirthCategoryNum1 != thirthCategoryNum2) {
             System.out.println("Равных цифр нет");
         }
  
@@ -134,7 +138,7 @@ public class IfElseStatementTheme {
         } else if (historyPercent > 73 && historyPercent <= 91) {
             historyMark = 4;
         } else if (historyPercent > 91) {
-             historyMark = 5;
+            historyMark = 5;
         }
 
         if (programmingPercent <= 60) {
@@ -144,11 +148,10 @@ public class IfElseStatementTheme {
         } else if (programmingPercent > 73 && programmingPercent <= 91) {
             programmingMark = 4;
         } else if (programmingPercent > 91) {
-             programmingMark = 5;
+            programmingMark = 5;
         }
 
-        System.out.println("История: " + historyMark + 
-                "\nПрограммирование: " + programmingMark);
+        System.out.println("История: " + historyMark + "\nПрограммирование: " + programmingMark);
         System.out.println("Средний балл оценок по предметам: " + ((programmingMark + historyMark) / 2));
         System.out.println("Средний % по предметам: " + ((programmingPercent + historyPercent) / 2));
 
