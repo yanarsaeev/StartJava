@@ -35,7 +35,8 @@ public class VariablesTheme {
         System.out.println("\nОбщая стоимость товаров со скидкой: " + discountPrice);
 
         System.out.println("\n\n3. Вывод слова JAVA\n");
-        System.out.println("   J    a  v     v  a\n   J   a a  v   v  a a\nJ  J  aaaaa  V V  aaaaa\n JJ  a     a  V  a     a");
+        System.out.println("   J    a  v     v  a\n   J   a a  v   v  a a" + 
+                "\nJ  J  aaaaa  V V  aaaaa\n JJ  a     a  V  a     a");
 
         System.out.println("\n\n4. Вывод min и max значений целых числовых типов");
         int maxInt = 2147483647;
@@ -107,7 +108,7 @@ public class VariablesTheme {
 
         System.out.println("    " + slash + backSlach);
         System.out.println("   " + slash + "  " + backSlach);
-        System.out.println("  " + slash + underscore  + leftParenthesis + " " + rightParenthesis + backSlach);
+        System.out.println("  " + slash + underscore + leftParenthesis + " " + rightParenthesis + backSlach);
         System.out.println(" " + slash + "      " + backSlach);
         System.out.println("" + slash + underscore + underscore + underscore + 
                 underscore + slash + backSlach + underscore + underscore + backSlach);
