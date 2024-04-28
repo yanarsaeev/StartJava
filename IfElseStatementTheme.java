@@ -47,18 +47,19 @@ public class IfElseStatementTheme {
         int num = -12;
         if (num == 0) {
             System.out.println("Число 0");
-            System.exit(0);
-        } else if (num < 0) {
-            if (num % 2 == 0) {
-                System.out.println(num + " является отрицательным и четным");
-            } else {
-                System.out.println(num + " является отрицательным и нечетным");
-            }
-        } else if (num > 0) {
-            if (num % 2 == 0) {
-                System.out.println(num + " является положительным и четным");
-            } else {
-                System.out.println(num + " является положительным и нечетным");
+        } else {
+            if (num < 0) {
+                if (num % 2 == 0) {
+                    System.out.println(num + " является отрицательным и четным");
+                } else {
+                    System.out.println(num + " является отрицательным и нечетным");
+                }
+            } else if (num > 0) {
+                if (num % 2 == 0) {
+                    System.out.println(num + " является положительным и четным");
+                } else {
+                    System.out.println(num + " является положительным и нечетным");
+                }
             }
         }
 
@@ -66,50 +67,50 @@ public class IfElseStatementTheme {
         int num1 = 123;
         int num2 = 223;
 
-        int firstCategoryNum1 = num1 / 100;
-        int secondCategoryNum1 = (num1 / 10) % 10;
-        final int thirthCategoryNum1 = num1 % 10;
+        int onesInNum1 = num1 / 100;
+        int tensInNum1 = (num1 / 10) % 10;
+        final int hundredsInNum1 = num1 % 10;
 
-        int firstCategoryNum2 = num2 / 100;
-        int secondCategoryNum2 = (num2 / 10) % 10;
-        final int thirthCategoryNum2 = num2 % 10;
+        int onesInNum2 = num2 / 100;
+        int tensInNum2 = (num2 / 10) % 10;
+        final int hundredsInNum2 = num2 % 10;
 
         System.out.println("Исходные числа: " + num1 + " и " + num2);
 
-        if (firstCategoryNum1 == firstCategoryNum2) {
-            System.out.println("Одинаковые цифры: " + firstCategoryNum1 + 
-                    " и " + firstCategoryNum2 + " в 1-ом разряде.");
+        if (onesInNum1 == onesInNum2) {
+            System.out.println("Одинаковые цифры: " + onesInNum1 + 
+                    " и " + onesInNum2 + " в 1-ом разряде.");
         }
 
-        if (secondCategoryNum1 == secondCategoryNum2) {
-            System.out.println("Одинаковые цифры: " + secondCategoryNum1 + 
-                    " и " + secondCategoryNum2 + " во 2-ом разряде.");
+        if (tensInNum1 == tensInNum2) {
+            System.out.println("Одинаковые цифры: " + tensInNum1 + 
+                    " и " + tensInNum2 + " во 2-ом разряде.");
         }
 
-        if (thirthCategoryNum1 == thirthCategoryNum2) {
-            System.out.println("Одинаковые цифры: " + thirthCategoryNum1 + 
-                    " и " + thirthCategoryNum2 + " в 3-ем разряде.");
+        if (hundredsInNum1 == hundredsInNum2) {
+            System.out.println("Одинаковые цифры: " + hundredsInNum1 + 
+                    " и " + hundredsInNum2 + " в 3-ем разряде.");
         }
 
-        if (firstCategoryNum1 != firstCategoryNum2 && secondCategoryNum1 != secondCategoryNum2 && 
-                thirthCategoryNum1 != thirthCategoryNum2) {
+        if (onesInNum1 != onesInNum2 && tensInNum1 != tensInNum2 && 
+                hundredsInNum1 != hundredsInNum2) {
             System.out.println("Равных цифр нет");
         }
  
         System.out.println("\n\n5. Определение символа по его коду");
-        char letter = '\u0031';
-        if (letter >= 'a' && letter <= 'z') {
-            System.out.println("Символ " + letter + " является маленькой буквой");
-        } else if (letter >= 'A' && letter <= 'Z') {
-            System.out.println("Символ " + letter + " является большой буквой");
-        } else if (letter >= '0' && letter <= '9') {
-            System.out.println("Символ " + letter + " является цифрой");
+        char unknownChar = '\u0031';
+        if (unknownChar >= 'a' && unknownChar <= 'z') {
+            System.out.println("Символ " + unknownChar + " является маленькой буквой");
+        } else if (unknownChar >= 'A' && unknownChar <= 'Z') {
+            System.out.println("Символ " + unknownChar + " является большой буквой");
+        } else if (unknownChar >= '0' && unknownChar <= '9') {
+            System.out.println("Символ " + unknownChar + " является цифрой");
         } else {
-            System.out.println("Символ " + letter + " не является цифрой или буквой");
+            System.out.println("Символ " + unknownChar + " не является цифрой или буквой");
         }
 
         System.out.println("\n\n6. Подсчет суммы вклада и начисленных банком %");
-        int contribution = 150000;
+        double contribution = 321123.59;
 
         if (contribution < 100000) {
             System.out.println("Сумма вклада: " + contribution + 
@@ -127,10 +128,7 @@ public class IfElseStatementTheme {
 
         System.out.println("\n\n7. Определение оценки по предметам");
         int historyPercent = 59;
-        int programmingPercent = 92;
-        int historyMark = 0;
-        int programmingMark = 0;
-
+        int historyMark = 2;
         if (historyPercent <= 60) {
             historyMark = 2;
         } else if (historyPercent > 60 && historyPercent <= 73) {
@@ -141,6 +139,8 @@ public class IfElseStatementTheme {
             historyMark = 5;
         }
 
+        int programmingPercent = 92;
+        int programmingMark = 2;
         if (programmingPercent <= 60) {
             programmingMark = 2;
         } else if (programmingPercent > 60 && programmingPercent <= 73) {
@@ -156,15 +156,15 @@ public class IfElseStatementTheme {
         System.out.println("Средний % по предметам: " + ((programmingPercent + historyPercent) / 2));
 
         System.out.println("\n\n8. Расчет годовой прибыли");
-        int monthlyProductSales = 13000;
-        int rentRoom = 5000;
-        int costOfProduction = 9000;
-        int profit = (monthlyProductSales * 12) - ((rentRoom * 12) + (costOfProduction * 12));
+        double monthlyProductSales = 130225.233;
+        double rentRoom = 5123.018;
+        double costOfProduction = 9001.729;
+        double profit = (monthlyProductSales * 12) - ((rentRoom * 12) + (costOfProduction * 12));
 
         if (profit >= 0) {
-            System.out.println("Прибыль за год: +" + profit);
+            System.out.printf("Прибыль за год: +%.2f", profit);
         } else {
-            System.out.println("Прибыль за год: " + profit);
+            System.out.printf("Прибыль за год: %.2f", profit);
         }
     }
 }
