@@ -149,18 +149,20 @@ public class IfElseStatementTheme {
         BigDecimal middlePercent = new BigDecimal("0.05");
         BigDecimal highPercent = new BigDecimal("0.07");
 
-        if (contribution.compareTo(minLimiter) < 0) {
+        if (contribution.compareTo(new BigDecimal("100000")) < 0) {
+            System.out.println("Сумма вклада: " + contribution + "\nСумма начисленного процента: " + 
+                    (contribution.multiply(new BigDecimal("0.1"))) + "\nИтоговая сумма с %: " + 
+                    (contribution.add(contribution.multiply(new BigDecimal("0.1")))));
+        } else if (contribution.compareTo(new BigDecimal("100000")) > 0 && 
+                contribution.compareTo(new BigDecimal("300000")) <= 0) {
             System.out.println("Сумма вклада: " + contribution + 
-                    "\nСумма начисленного процента: " + (contribution.multiply(percent)) + 
-                    "\nИтоговая сумма с %: " + (contribution.add(contribution.multiply(percent))));
-        } else if (contribution.compareTo(minLimiter) > 0 && contribution.compareTo(maxLimiter) <= 0) {
-            System.out.println("Сумма вклада: " + contribution + 
-                    "\nСумма начисленного процента: " + (contribution.multiply(middlePercent)) + 
-                    "\nИтоговая сумма с %: " + (contribution.add(contribution.multiply(middlePercent))));
-        } else if (contribution.compareTo(maxLimiter) > 0) {
-            System.out.println("Сумма вклада: " + contribution + 
-                    "\nСумма начисленного процента: " + (contribution.multiply(highPercent)) + 
-                    "\nИтоговая сумма с %: " + (contribution.add(contribution.multiply(highPercent))));
+                    "\nСумма начисленного процента: " + 
+                    (contribution.multiply(new BigDecimal("0.05"))) + "\nИтоговая сумма с %: " + 
+                    (contribution.add(contribution.multiply(new BigDecimal("0.05")))));
+        } else if (contribution.compareTo(new BigDecimal("300000")) > 0) {
+            System.out.println("Сумма вклада: " + contribution + "\nСумма начисленного процента: " + 
+                    (contribution.multiply(new BigDecimal("0.07"))) + "\nИтоговая сумма с %: " + 
+                    (contribution.add(contribution.multiply(new BigDecimal("0.07")))));
         }
 
         System.out.println("\n\n7. Определение оценки по предметам");
