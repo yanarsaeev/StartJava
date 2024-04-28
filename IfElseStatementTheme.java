@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 public class IfElseStatementTheme {
     public static void main(String[] args) {
         System.out.println("1. Перевод псевдокода на язык Java");
@@ -139,20 +141,26 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n\n6. Подсчет суммы вклада и начисленных банком %");
-        double contribution = 321123.59;
+        BigDecimal contribution = new BigDecimal("321123.59");
+        BigDecimal minLimiter = new BigDecimal("100000");
+        BigDecimal maxLimiter = new BigDecimal("300000");
 
-        if (contribution < 100000) {
+        BigDecimal percent = new BigDecimal("0.1");
+        BigDecimal middlePercent = new BigDecimal("0.05");
+        BigDecimal highPercent = new BigDecimal("0.07");
+
+        if (contribution.compareTo(minLimiter) < 0) {
             System.out.println("Сумма вклада: " + contribution + 
-                    "\nСумма начисленного процента: " + (contribution * 0.05) + 
-                    "\nИтоговая сумма с %: " + (contribution + (contribution * 0.05)));
-        } else if (contribution >= 100000 && contribution <= 300000) {
+                    "\nСумма начисленного процента: " + (contribution.multiply(percent)) + 
+                    "\nИтоговая сумма с %: " + (contribution.add(contribution.multiply(percent))));
+        } else if (contribution.compareTo(minLimiter) > 0 && contribution.compareTo(maxLimiter) <= 0) {
             System.out.println("Сумма вклада: " + contribution + 
-                    "\nСумма начисленного процента: " + (contribution * 0.07) + 
-                    "\nИтоговая сумма с %: " + (contribution + (contribution * 0.07)));
-        } else if (contribution > 300000) {
+                    "\nСумма начисленного процента: " + (contribution.multiply(middlePercent)) + 
+                    "\nИтоговая сумма с %: " + (contribution.add(contribution.multiply(middlePercent))));
+        } else if (contribution.compareTo(maxLimiter) > 0) {
             System.out.println("Сумма вклада: " + contribution + 
-                    "\nСумма начисленного процента: " + (contribution * 0.1) + 
-                    "\nИтоговая сумма с %: " + (contribution + (contribution * 0.1)));
+                    "\nСумма начисленного процента: " + (contribution.multiply(highPercent)) + 
+                    "\nИтоговая сумма с %: " + (contribution.add(contribution.multiply(highPercent))));
         }
 
         System.out.println("\n\n7. Определение оценки по предметам");
@@ -185,15 +193,20 @@ public class IfElseStatementTheme {
         System.out.println("Средний % по предметам: " + ((programmingPercent + historyPercent) / 2));
 
         System.out.println("\n\n8. Расчет годовой прибыли");
-        double monthlyProductSales = 130225.233;
-        double rentRoom = 5123.018;
-        double costOfProduction = 9001.729;
-        double profit = (monthlyProductSales * 12) - ((rentRoom * 12) + (costOfProduction * 12));
+        BigDecimal monthlyRevenue = new BigDecimal("13025.233");
+        BigDecimal monthlyRent = new BigDecimal("5123.018");
+        BigDecimal monthlyCostOfProduction = new BigDecimal("9001.729");
 
-        if (profit >= 0) {
-            System.out.printf("Прибыль за год: +%.2f", profit);
+        BigDecimal annualRevenue = monthlyRevenue.multiply(new BigDecimal("12"));
+        BigDecimal annualRent = monthlyRent.multiply(new BigDecimal("12"));
+        BigDecimal annualCostOfProduction = monthlyCostOfProduction.multiply(new BigDecimal("12"));
+
+        BigDecimal annualProfit = annualRevenue.subtract(annualRent).subtract(annualCostOfProduction);
+
+        if (annualProfit.compareTo(new BigDecimal("0")) > 0) {
+            System.out.println("Прибыль за год: +" + annualProfit);
         } else {
-            System.out.printf("Прибыль за год: %.2f", profit);
+            System.out.println("Прибыль за год: " + annualProfit);
         }
     }
 }
