@@ -67,6 +67,18 @@ public class IfElseStatementTheme {
         int num1 = 123;
         int num2 = 223;
 
+        boolean hasOnes = false;
+        boolean hasTens = false;
+        boolean hasHundreds = false;
+
+        if ((num1 > 0 && num1 < 10) && (num2 > 0 && num2 < 10)) {
+            hasOnes = true;
+        } else if ((num1 > 9 && num1 < 100) && (num2 > 9 && num2 < 100)) {
+            hasTens = true;
+        } else if ((num1 > 99 && num1 < 1000) && (num2 > 99 && num2 < 1000)) {
+            hasHundreds = true;
+        }
+
         int onesInNum1 = num1 / 100;
         int tensInNum1 = (num1 / 10) % 10;
         final int hundredsInNum1 = num1 % 10;
@@ -77,19 +89,36 @@ public class IfElseStatementTheme {
 
         System.out.println("Исходные числа: " + num1 + " и " + num2);
 
-        if (onesInNum1 == onesInNum2) {
-            System.out.println("Одинаковые цифры: " + onesInNum1 + 
-                    " и " + onesInNum2 + " в 1-ом разряде.");
-        }
+        if (hasOnes) {
+            if (onesInNum1 == onesInNum2) {
+                System.out.println("Одинаковые цифры: " + onesInNum1 + 
+                        " и " + onesInNum2 + " в 1-ом разряде.");
+            }
+        } else if (hasTens) {
+            if (onesInNum1 == onesInNum2) {
+                System.out.println("Одинаковые цифры: " + onesInNum1 + 
+                        " и " + onesInNum2 + " в 1-ом разряде.");
+            }
 
-        if (tensInNum1 == tensInNum2) {
-            System.out.println("Одинаковые цифры: " + tensInNum1 + 
-                    " и " + tensInNum2 + " во 2-ом разряде.");
-        }
+            if (tensInNum1 == tensInNum2) {
+                System.out.println("Одинаковые цифры: " + tensInNum1 + 
+                        " и " + tensInNum2 + " во 2-ом разряде.");
+            }
+        } else if (hasHundreds) {
+            if (onesInNum1 == onesInNum2) {
+                System.out.println("Одинаковые цифры: " + onesInNum1 + 
+                        " и " + onesInNum2 + " в 1-ом разряде.");
+            }
 
-        if (hundredsInNum1 == hundredsInNum2) {
-            System.out.println("Одинаковые цифры: " + hundredsInNum1 + 
-                    " и " + hundredsInNum2 + " в 3-ем разряде.");
+            if (tensInNum1 == tensInNum2) {
+                System.out.println("Одинаковые цифры: " + tensInNum1 + 
+                        " и " + tensInNum2 + " во 2-ом разряде.");
+            }
+
+            if (hundredsInNum1 == hundredsInNum2) {
+                System.out.println("Одинаковые цифры: " + hundredsInNum1 + 
+                        " и " + hundredsInNum2 + " в 3-ем разряде.");
+            }
         }
 
         if (onesInNum1 != onesInNum2 && tensInNum1 != tensInNum2 && 
