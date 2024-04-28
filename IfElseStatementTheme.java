@@ -79,15 +79,15 @@ public class IfElseStatementTheme {
             hasHundreds = true;
         }
 
+        System.out.println("Исходные числа: " + num1 + " и " + num2);
+
         int onesInNum1 = num1 / 100;
         int tensInNum1 = (num1 / 10) % 10;
-        final int hundredsInNum1 = num1 % 10;
+        int hundredsInNum1 = num1 % 10;
 
         int onesInNum2 = num2 / 100;
         int tensInNum2 = (num2 / 10) % 10;
-        final int hundredsInNum2 = num2 % 10;
-
-        System.out.println("Исходные числа: " + num1 + " и " + num2);
+        int hundredsInNum2 = num2 % 10;
 
         if (hasOnes) {
             if (onesInNum1 == onesInNum2) {
