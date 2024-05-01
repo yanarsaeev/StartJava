@@ -1,4 +1,4 @@
-import java.math.BigDecimal;
+import java.math.*;
 
 public class IfElseStatementTheme {
     public static void main(String[] args) {
@@ -50,11 +50,17 @@ public class IfElseStatementTheme {
         if (num == 0) {
             System.out.println("Число 0");
         } else {
-            if (num < 0 || num > 0) {
-                if (num % 2 == 0) {
-                    System.out.println(num + " является отрицательным и четным");
+            if (num % 2 == 0) {
+                if (num < 0) {
+                    System.out.println(num + "является отрицательным и четным");
                 } else {
-                    System.out.println(num + " является отрицательным и нечетным");
+                    System.out.println(num + "является положительным и четным");
+                }
+            } else {
+                if (num < 0) {
+                    System.out.println(num + "является отрицательным и нечетным");
+                } else {
+                    System.out.println(num + "является положительным и нечетным");
                 }
             }
         }
@@ -89,8 +95,6 @@ public class IfElseStatementTheme {
                         " и " + hundredsInNum2 + " в 1-ом разряде.");
             } 
         }
-
-        
  
         System.out.println("\n\n5. Определение символа по его коду");
         char unknownChar = '\u0031';
@@ -116,8 +120,10 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("Сумма вклада: " + contribution + 
-                "\nСумма начисленного процента: " + contribution.multiply(percent) +
-                "\nИтоговая сумма с %: " + contribution.add(contribution.multiply(percent)));
+                "\nСумма начисленного процента: " + 
+                contribution.multiply(percent).setScale(2, RoundingMode.HALF_UP) +
+                "\nИтоговая сумма с %: " + 
+                contribution.add(contribution.multiply(percent)).setScale(2, RoundingMode.HALF_UP));
 
         System.out.println("\n\n7. Определение оценки по предметам");
         int historyPercent = 59;
@@ -141,8 +147,9 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("История: " + historyMark + "\nПрограммирование: " + programmingMark);
-        System.out.println("Средний балл оценок по предметам: " + ((programmingMark + historyMark) / 2));
-        System.out.println("Средний % по предметам: " + ((programmingPercent + historyPercent) / 2));
+        System.out.println("Средний балл оценок по предметам: " + 
+                (double) ((programmingMark + historyMark) / 2));
+        System.out.println("Средний % по предметам: " + (double) ((programmingPercent + historyPercent) / 2));
 
         System.out.println("\n\n8. Расчет годовой прибыли");
         BigDecimal monthlyRevenue = new BigDecimal("13025.233");
@@ -151,7 +158,8 @@ public class IfElseStatementTheme {
 
         BigDecimal annualProfit = monthlyRevenue.subtract(monthlyRent)
                 .subtract(monthlyCostOfProduction)
-                .multiply(new BigDecimal("12"));
+                .multiply(new BigDecimal("12"))
+                .setScale(2, RoundingMode.HALF_UP);
 
         if (annualProfit.compareTo(BigDecimal.ZERO) > 0) {
             System.out.println("Прибыль за год: +" + annualProfit);
