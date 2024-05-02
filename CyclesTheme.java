@@ -52,10 +52,62 @@ public class CyclesTheme {
         System.out.println(sum);
 
         System.out.println("\n\n4. Вывод чисел в несколько строк");
-        for (int i = 1; i < 24; i++) {
-            if (i % 2 != 0) {
-                System.out.println(i);
+        int oddNumsCounter = 0;
+        for (int i = 1; i < 24; i += 2) {
+            if (oddNumsCounter % 5 == 0) {
+                System.out.println();
+            }
+            System.out.print(i + " ");
+            oddNumsCounter++;
+        }
+
+        if (oddNumsCounter % 5 != 0) {
+            int remaining = 5 - oddNumsCounter % 5;
+            for (int i = 0; i < remaining; i++) {
+                System.out.print("0 ");
             }
         }
+
+        System.out.println("\n\n5. Проверка количества двоек числа на четность/нечетность");
+        
+
+        System.out.println("\n\n6. Отображение геометрических фигур");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        int counter = 5;
+        while (counter > 0) {
+            int nestedCounter = 0;
+            while (nestedCounter < counter) {
+                System.out.print("#");
+                nestedCounter++;
+            }
+            System.out.println();
+            counter--;
+        }
+        System.out.println();
+
+        int firstHalfOfTriangle = 1;
+        do {
+            int nestedCounter = 0;
+            do {
+                System.out.print("$");
+            } while (++nestedCounter < firstHalfOfTriangle);
+            System.out.println();
+        } while (firstHalfOfTriangle++ < 3);
+
+        int secondHalfOfTheTriangle = 2;
+        do {
+            int nestedCounter = 0;
+            do {
+                System.out.print("$");
+            } while (++nestedCounter < secondHalfOfTheTriangle);
+            System.out.println();
+        } while (--secondHalfOfTheTriangle > 0);
     }
 }
