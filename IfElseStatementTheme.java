@@ -51,17 +51,14 @@ public class IfElseStatementTheme {
             System.out.println("Число 0");
         } else {
             if (num % 2 == 0) {
-                if (num < 0) {
-                    System.out.println(num + "является отрицательным и четным");
-                } else {
-                    System.out.println(num + "является положительным и четным");
-                }
+                System.out.print(num + " является четным ")
             } else {
-                if (num < 0) {
-                    System.out.println(num + "является отрицательным и нечетным");
-                } else {
-                    System.out.println(num + "является положительным и нечетным");
-                }
+                System.out.print(num + " является нечетным ");
+            }
+            if (num > 0) {
+                System.out.println("и положительным");
+            } else {
+                System.out.println("и отрицательным");
             }
         }
 
@@ -110,13 +107,13 @@ public class IfElseStatementTheme {
 
         System.out.println("\n\n6. Подсчет суммы вклада и начисленных банком %");
         BigDecimal contribution = new BigDecimal("321123.59");
-        BigDecimal percent = new BigDecimal("0.1");
+        BigDecimal percent = new BigDecimal("0.05");
 
-        if (contribution.compareTo(new BigDecimal("100000")) > 0 && 
+        if (contribution.compareTo(new BigDecimal("100000")) >= 0 && 
                 contribution.compareTo(new BigDecimal("300000")) <= 0) {
-            percent = new BigDecimal("0.05");
-        } else if (contribution.compareTo(new BigDecimal("300000")) > 0) {
             percent = new BigDecimal("0.07");
+        } else if (contribution.compareTo(new BigDecimal("300000")) > 0) {
+            percent = new BigDecimal("0.1");
         }
 
         System.out.println("Сумма вклада: " + contribution + 
@@ -148,8 +145,9 @@ public class IfElseStatementTheme {
 
         System.out.println("История: " + historyMark + "\nПрограммирование: " + programmingMark);
         System.out.println("Средний балл оценок по предметам: " + 
-                (double) ((programmingMark + historyMark) / 2));
-        System.out.println("Средний % по предметам: " + (double) ((programmingPercent + historyPercent) / 2));
+                (double) (programmingMark + historyMark) / 2);
+        System.out.println("Средний % по предметам: " + 
+                (double) (programmingPercent + historyPercent) / 2);
 
         System.out.println("\n\n8. Расчет годовой прибыли");
         BigDecimal monthlyRevenue = new BigDecimal("13025.233");
