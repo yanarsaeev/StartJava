@@ -51,7 +51,7 @@ public class IfElseStatementTheme {
             System.out.println("Число 0");
         } else {
             if (num % 2 == 0) {
-                System.out.print(num + " является четным ")
+                System.out.print(num + " является четным ");
             } else {
                 System.out.print(num + " является нечетным ");
             }
