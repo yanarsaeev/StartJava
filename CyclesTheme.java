@@ -69,7 +69,25 @@ public class CyclesTheme {
         }
 
         System.out.println("\n\n5. Проверка количества двоек числа на четность/нечетность");
-        
+        int desiredNum = 3242592;
+        int twosCount = 0;
+
+        int countDigitsOnNum = 7;
+        int copyDesiredNum = desiredNum;
+        while (countDigitsOnNum > 0) {
+            int nestedCounter = copyDesiredNum % 10;
+            copyDesiredNum /= 10;
+            if (nestedCounter == 2) {
+                twosCount++;
+            }
+            countDigitsOnNum--;
+        }
+
+        if (twosCount % 2 == 0) {
+            System.out.println("В " + desiredNum + " четное количество двоек - " + twosCount);
+        } else {
+            System.out.println("В " + desiredNum + " нечетное количество двоек " + twosCount);
+        }
 
         System.out.println("\n\n6. Отображение геометрических фигур");
         for (int i = 0; i < 5; i++) {
@@ -109,5 +127,7 @@ public class CyclesTheme {
             } while (++nestedCounter < secondHalfOfTheTriangle);
             System.out.println();
         } while (--secondHalfOfTheTriangle > 0);
+
+        System.out.println("\n\n7. Отображение ASCII-символов");
     }
 }
