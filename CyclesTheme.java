@@ -129,5 +129,12 @@ public class CyclesTheme {
         } while (--secondHalfOfTheTriangle > 0);
 
         System.out.println("\n\n7. Отображение ASCII-символов");
+        System.out.println("DECIMAL   CHARACTER   DESCRIPTION");
+        int charId = 33;
+        for (int i = 0; i < 7; i++) {
+            System.out.printf("%4d%11c%-11s%n", 
+                    charId, (char) charId, Character.getName(charId));
+            charId += 2;
+        }
     }
 }
