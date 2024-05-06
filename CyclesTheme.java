@@ -57,14 +57,15 @@ public class CyclesTheme {
             if (oddNumsCounter % 5 == 0) {
                 System.out.println();
             }
-            System.out.print(i + " ");
+            // System.out.print(i + " ");
+            System.out.printf("%4d", i);
             oddNumsCounter++;
         }
 
         if (oddNumsCounter % 5 != 0) {
             int remaining = 5 - oddNumsCounter % 5;
             for (int i = 0; i < remaining; i++) {
-                System.out.print("0 ");
+                System.out.printf("%4d", 0);
             }
         }
 
@@ -130,11 +131,66 @@ public class CyclesTheme {
 
         System.out.println("\n\n7. Отображение ASCII-символов");
         System.out.println("DECIMAL   CHARACTER   DESCRIPTION");
-        int charId = 33;
-        for (int i = 0; i < 7; i++) {
-            System.out.printf("%4d%11c%-11s%n", 
-                    charId, (char) charId, Character.getName(charId));
-            charId += 2;
+        for (int i = 33; i < 46; i++) {
+            System.out.printf("%4d%11c           %-11s%n", i, (char) i, Character.getName(i));
+        }
+
+        for (int i = 98; i < 123; i += 2) {
+            System.out.printf("%4d%11c           %-11s%n", i, (char) i, Character.getName(i));
+        }
+
+        System.out.println("\n\n8. Проверка, является ли число палиндромом");
+        int palindrome = 1234321;
+        int palindromeForComparison = palindrome;
+        int nestedCounter = 0;
+        while (palindrome != 0) {
+            nestedCounter = nestedCounter * 10 + palindrome % 10;
+            palindrome /= 10;
+        }
+        System.out.println(nestedCounter == palindromeForComparison ? 
+                "число " + palindromeForComparison + " является палиндромом" : 
+                "число " + palindromeForComparison + " не является палиндромом");
+
+        System.out.println("\n\n9. Проверка, является ли число счастливым");
+        int luckyNum = 456456;
+
+        int firstHalfSum = 0;
+        int secondHalfSum = 0;
+        for (int i = 0; i < 6; i++) {
+            int digit = (luckyNum / (int) Math.pow(10, i)) % 10;
+            if (i < 3) {
+                secondHalfSum += digit;
+            } else {
+                firstHalfSum += digit;
+            }
+        }
+
+        if (firstHalfSum == secondHalfSum) {
+            System.out.println("Число " + luckyNum + " является счастливым" + 
+                    "\nСумма " + (luckyNum / 1000) + " = " + firstHalfSum + 
+                    ", а сумма " + (luckyNum % 1000) + " = " + secondHalfSum);
+        } else {
+            System.out.println("Число " + luckyNum + " не является счастливым" + 
+                    "\nСумма " + (luckyNum / 1000) + " = " + firstHalfSum + 
+                    ", а сумма " + (luckyNum % 1000) + " = " + secondHalfSum);
+        }
+
+        System.out.println("\n\n10. Отображение таблицы умножения Пифагора");
+        for (int i = 2; i < 10; i++) {
+            System.out.printf("%4d", i);
+        }
+        System.out.println("\n----------------------------------");
+
+
+        for (int i = 2; i < 10; i++) {
+            for (int j = 2; j < 10; j++) {
+                // System.out.print(j + " | ");
+                System.out.printf("%4d", i * j);
+                if (j > 9) {
+                    System.out.println();
+                }
+            }
+            System.out.println();
         }
     }
 }
