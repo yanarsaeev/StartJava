@@ -71,11 +71,11 @@ public class CyclesTheme {
         }
 
         System.out.println("\n\n5. Проверка количества двоек числа на четность/нечетность");
-        int desiredNum = 3242592;
+        num = 3242592;
         int twosCount = 0;
 
         int countDigitsOnNum = 7;
-        int desiredNumCopy = desiredNum;
+        int desiredNumCopy = num;
         while (countDigitsOnNum > 0) {
             int nestedCounter = desiredNumCopy % 10;
             desiredNumCopy /= 10;
@@ -86,9 +86,9 @@ public class CyclesTheme {
         }
 
         if (twosCount % 2 == 0) {
-            System.out.println("В " + desiredNum + " четное количество двоек - " + twosCount);
+            System.out.println("В " + num + " четное количество двоек - " + twosCount);
         } else {
-            System.out.println("В " + desiredNum + " нечетное количество двоек " + twosCount);
+            System.out.println("В " + num + " нечетное количество двоек " + twosCount);
         }
 
         System.out.println("\n\n6. Отображение геометрических фигур");
@@ -112,23 +112,29 @@ public class CyclesTheme {
         }
         System.out.println();
 
-        int firstHalfOfTriangle = 1;
-        do {
-            int nestedCounter = 0;
-            do {
-                System.out.print("$");
-            } while (++nestedCounter < firstHalfOfTriangle);
-            System.out.println();
-        } while (firstHalfOfTriangle++ < 3);
+        int linesCount = 0;
+        int spaces = 2; 
 
-        int secondHalfOfTheTriangle = 2;
         do {
-            int nestedCounter = 0;
+            int j = 3;
             do {
-                System.out.print("$");
-            } while (++nestedCounter < secondHalfOfTheTriangle);
+                if (j > spaces) {
+                    System.out.print("$");
+                } else {
+                    System.out.print(" ");
+                }
+                j--;
+            } while (j > 0);
+
             System.out.println();
-        } while (--secondHalfOfTheTriangle > 0);
+
+            if (linesCount < 2) { 
+                spaces--;
+            } else { 
+                spaces++;
+            }
+            linesCount++;
+        } while (linesCount < 5);
 
         System.out.println("\n\n7. Отображение ASCII-символов");
         System.out.println("DECIMAL   CHARACTER   DESCRIPTION");
@@ -142,15 +148,15 @@ public class CyclesTheme {
 
         System.out.println("\n\n8. Проверка, является ли число палиндромом");
         int palindrome = 1234321;
-        int palindromeForComparison = palindrome;
-        int nestedCounter = 0;
-        while (palindrome != 0) {
-            nestedCounter = nestedCounter * 10 + palindrome % 10;
+        int palindromeCopy = palindrome;
+        int reverseNum = 0;
+        while (palindrome > 0) {
+            reverseNum = reverseNum * 10 + palindrome % 10;
             palindrome /= 10;
         }
-        System.out.println(nestedCounter == palindromeForComparison ? 
-                "число " + palindromeForComparison + " является палиндромом" : 
-                "число " + palindromeForComparison + " не является палиндромом");
+        System.out.println(reverseNum == palindromeCopy ? 
+                "число " + palindromeCopy + " является палиндромом" : 
+                "число " + palindromeCopy + " не является палиндромом");
 
         System.out.println("\n\n9. Проверка, является ли число счастливым");
         int luckyNum = 456456;
