@@ -47,8 +47,9 @@ public class CyclesTheme {
         int num = 1234;
         int sum = 0;
         while (num > 0) {
-            System.out.print(num % 10); // НУЖНО ИСПРАВИТЬ !!!
-            sum += num % 10;
+            int digit = num % 10;
+            System.out.print(digit);
+            sum += digit;
             num /= 10;
         }
         System.out.println(sum);
@@ -100,15 +101,15 @@ public class CyclesTheme {
         }
         System.out.println();
 
-        int counter = 5;
-        while (counter > 0) {
-            int nestedCounter = 0;
-            while (nestedCounter < counter) {
+        int lines = 5;
+        while (lines > 0) {
+            int rows = 0;
+            while (rows < lines) {
                 System.out.print("#");
-                nestedCounter++;
+                rows++;
             }
             System.out.println();
-            counter--;
+            lines--;
         }
         System.out.println();
 
@@ -154,33 +155,33 @@ public class CyclesTheme {
             reverseNum = reverseNum * 10 + palindrome % 10;
             palindrome /= 10;
         }
-        System.out.println(reverseNum == palindromeCopy ? 
-                "число " + palindromeCopy + " является палиндромом" : 
-                "число " + palindromeCopy + " не является палиндромом");
+
+        String resultForConsole = (reverseNum == palindromeCopy) ? "является" : "не является";
+        System.out.println("Число " + palindromeCopy + " " + resultForConsole + " палиндромом");
 
         System.out.println("\n\n9. Проверка, является ли число счастливым");
         int luckyNum = 456456;
 
+        int firstHalf = luckyNum / 1000;
+        int secondHalf = luckyNum % 1000;
+        
         int firstHalfSum = 0;
+        for (int i = 0; i < 3; i++) {
+            firstHalfSum += firstHalf % 10;
+            firstHalf /= 10;
+        }
+        
         int secondHalfSum = 0;
-        for (int i = 0; i < 6; i++) {
-            int digit = (luckyNum / (int) Math.pow(10, i)) % 10;
-            if (i < 3) {
-                secondHalfSum += digit;
-            } else {
-                firstHalfSum += digit;
-            }
+        for (int i = 0; i < 3; i++) {
+            secondHalfSum += secondHalf % 10;
+            secondHalf /= 10;
         }
 
-        if (firstHalfSum == secondHalfSum) {
-            System.out.println("Число " + luckyNum + " является счастливым" + 
-                    "\nСумма " + (luckyNum / 1000) + " = " + firstHalfSum + 
-                    ", а сумма " + (luckyNum % 1000) + " = " + secondHalfSum);
-        } else {
-            System.out.println("Число " + luckyNum + " не является счастливым" + 
-                    "\nСумма " + (luckyNum / 1000) + " = " + firstHalfSum + 
-                    ", а сумма " + (luckyNum % 1000) + " = " + secondHalfSum);
-        }
+        resultForConsole = (firstHalfSum == secondHalfSum) ? "является" : "не является";
+        String sumForConsole = "\nСумма " + (luckyNum / 1000) + " = " + firstHalfSum + 
+                ", а сумма " + (luckyNum % 1000) + " = " + secondHalfSum;
+
+        System.out.println("Число " + luckyNum + " " + resultForConsole + " счастливым" + sumForConsole);
 
         System.out.println("\n\n10. Отображение таблицы умножения Пифагора");
         for (int i = 1; i < 10; i++) {
