@@ -78,11 +78,10 @@ public class CyclesTheme {
 
         int numCopy = num;
         while (numCopy > 0) {
-            int digit = numCopy % 10;
-            numCopy /= 10;
-            if (digit == 2) {
+            if (numCopy % 10 == 2) {
                 twosCount++;
             }
+            numCopy /= 10;
         }
 
         if (twosCount % 2 == 0) {
