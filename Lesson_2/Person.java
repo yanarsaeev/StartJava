@@ -5,7 +5,6 @@ public class Person {
     int height = 181;
     float weight = 77.5f;
 
-
     void go() {
         System.out.println("Идёт");
     }
