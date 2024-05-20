@@ -15,6 +15,6 @@ class WolfTest {
         wolf.sit();
         wolf.run();
         wolf.howl();
-        wolf.hunting();
+        wolf.hunt();
     }
 }
