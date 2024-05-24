@@ -21,7 +21,7 @@ class Calculator {
                 break;
             case '/':
                 if (secondNum == 0) {
-                    System.out.println("Ошибка: на 0 делить нельзя");
+                    System.out.println("Ошибка: деление на ноль запрещено");
                 } else {
                     result = firstNum / secondNum;
                 }
