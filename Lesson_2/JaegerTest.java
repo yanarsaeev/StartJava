@@ -13,9 +13,8 @@ public class JaegerTest {
         jaeger2.setModelName("Gipsy Avenger");
         jaeger2.setMark("Mark-6");
         jaeger2.setBodyLanguage("Street Fighter");
-        System.out.println(jaeger2.getModelName() + 
-                "\n" + jaeger2.getMark() + 
-                "\n" + jaeger2.getBodyLanguage());
+        System.out.println(jaeger2.getModelName() + "\n" + 
+                jaeger2.getMark() + "\n" + jaeger2.getBodyLanguage());
         jaeger2.pilotsCount(3);
         System.out.println(jaeger2.getPilots());
         jaeger2.setRockets(10);
