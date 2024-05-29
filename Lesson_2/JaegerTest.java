@@ -15,7 +15,7 @@ public class JaegerTest {
         jaeger2.setBodyLanguage("Street Fighter");
         System.out.println(jaeger2.getModelName() + "\n" + 
                 jaeger2.getMark() + "\n" + jaeger2.getBodyLanguage());
-        jaeger2.pilotsCount(3);
+        jaeger2.setPilots(3);
         System.out.println(jaeger2.getPilots());
         jaeger2.setRockets(10);
         jaeger2.useRockets(5);
