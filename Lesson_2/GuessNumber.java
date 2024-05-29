@@ -10,7 +10,7 @@ public class GuessNumber {
         this.player2 = player2;
     }
 
-    void startGame() {
+    void start() {
         Random r = new Random();
         int computerNum = r.nextInt(1, 101);
         Scanner scanner = new Scanner(System.in);
