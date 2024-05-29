@@ -1,8 +1,9 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class GuessNumber {
-    Player player1;
-    Player player2;
+    private Player player1;
+    private Player player2;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -12,9 +13,9 @@ public class GuessNumber {
     void startGame() {
         Random r = new Random();
         int computerNum = r.nextInt(1, 101);
-
+        Scanner scanner = new Scanner(System.in);
         while (true) {
-            player1.setNumber(r.nextInt(1, 101));
+            player1.setNumber(scanner.nextInt());
             String result1 = "";
             if (player1.getNumber() != computerNum) {
                 if (player1.getNumber() > computerNum) {
@@ -29,7 +30,7 @@ public class GuessNumber {
                 break;
             }
 
-            player2.setNumber(r.nextInt(1, 101));
+            player2.setNumber(scanner.nextInt());
             String result2 = "";
             if (player2.getNumber() != computerNum) {
                 if (player2.getNumber() > computerNum) {
