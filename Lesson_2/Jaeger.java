@@ -28,12 +28,6 @@ public class Jaeger {
         this.rockets = rockets;
     }
 
-    public Jaeger(String modelName, String mark, String origin) {
-        this.modelName = modelName;
-        this.mark = mark;
-        this.origin = origin;
-    }
-
     String getModelName() {
         return modelName;
     }
