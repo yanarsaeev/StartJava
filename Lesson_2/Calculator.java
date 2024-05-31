@@ -1,55 +1,63 @@
 class Calculator {
     private char sign;
-    private int firstNum;
-    private int secondNum;
+    private int arg1;
+    private int arg2;
 
     double result = 1.0;
 
-    public Calculator(int firstNum, char sign, int secondNum) {
-        this.firstNum = firstNum;
+    public Calculator(int arg1, char sign, int arg2) {
+        this.arg1 = arg1;
         this.sign = sign;
-        this.secondNum = secondNum;
+        this.arg2 = arg2;
     }
 
     void calculate() {
         switch (sign) {
             case '+':
-                result = firstNum + secondNum;
+                result = arg1 + arg2;
+                printResult();
                 break;
             case '-':
-                result = firstNum - secondNum;
+                result = arg1 - arg2;
+                printResult();
                 break;
             case '/':
-                if (secondNum == 0) {
+                if (arg2 == 0) {
                     System.out.println("Ошибка: деление на ноль запрещено");
                 } else {
-                    result = firstNum / secondNum;
+                    result = arg1 / arg2;
                 }
+                printResult();
                 break;
             case '*':
-                result = firstNum * secondNum;
+                result = arg1 * arg2;
+                printResult();
                 break;
             case '%':
-                result = firstNum % secondNum;
+                result = arg1 % arg2;
+                printResult();
                 break;
             case '^':
-                if(secondNum > 0) {
-                    result = Math.pow(firstNum, secondNum);
-                } else if (secondNum < 0) {
-                    secondNum = -secondNum;
-                    for (int i = 0; i < secondNum; i++) {
-                        result *= firstNum;
+                if (arg2 > 0) {
+                    for (int i = 0; i < arg2; i++) {
+                        result *= arg1;
+                    }
+                } else if (arg2 < 0) {
+                    arg2 = -arg2;
+                    for (int i = 0; i < arg2; i++) {
+                        result *= arg1;
                     }
                     result = 1.0 / result;
                 }
+                printResult();
                 break;
             default:
-                System.out.println("Ошибка: операция \"sign\" не поддерживается");
+                System.out.println("Ошибка: операция \"" + sign + "\" не поддерживается");
                 break;
         }
     }
 
-    void printAnswer() {
+    void printResult() {
         System.out.println("Ответ: " + result);
     }
 }
