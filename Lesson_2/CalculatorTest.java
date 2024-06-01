@@ -3,34 +3,26 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        do {
-            System.out.println("Введите первое число:");
-            int firstNum = scanner.nextInt();
+        String repeat = "yes";
+        while (repeat.equals("yes")) {
+            System.out.println("Введите первое число: ");
+            int arg1 = scanner.nextInt();
             scanner.nextLine();
-            System.out.println("Введите знак математической операции:");
+            System.out.println("Введите знак математической операции: ");
             char sign = scanner.nextLine().charAt(0);
-            System.out.println("Введите второе число:");
-            int secondNum = scanner.nextInt();
+            System.out.println("Введите второе число: ");
+            int arg2 = scanner.nextInt();
             scanner.nextLine();
-            Calculator expression1 = new Calculator(firstNum, sign, secondNum);
-            expression1.calculate();
-            expression1.printAnswer();
 
-            boolean isRepeat = true;
-            while (true) {
+            Calculator calculator = new Calculator(arg1, sign, arg2);
+            calculator.calculate();
+
+            System.out.println("Хотите продолжить вычисления? [yes/no]");
+            repeat = scanner.next();
+            while (!repeat.equals("yes") && !repeat.equals("no")) {
                 System.out.println("Хотите продолжить вычисления? [yes/no]");
-                String repeat = scanner.nextLine();
-                if (repeat.equals("yes")) {
-                    break;
-                } else if (repeat.equals("no")) {
-                    isRepeat = false;
-                    break;
-                }
+                repeat = scanner.next();
             }
-
-            if (isRepeat == false) {
-                break;
-            }
-        } while (true);
+        }
     }
 }
