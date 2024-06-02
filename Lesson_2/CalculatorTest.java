@@ -17,16 +17,10 @@ public class CalculatorTest {
             Calculator calculator = new Calculator(arg1, sign, arg2);
             calculator.calculate();
 
-            // repeat = "";
-            // while (!repeat.equals("yes") && !repeat.equals("no")) {
-            //     System.out.println("Хотите продолжить вычисления? [yes/no]");
-            //     repeat = scanner.next();
-            // }
-
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]");
                 repeat = scanner.next();
-            } while(!"yes".equals(repeat) && !"no".equals(repeat));
+            } while (!"yes".equals(repeat) && !"no".equals(repeat));
         }
     }
 }
