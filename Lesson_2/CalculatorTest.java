@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String repeat = "yes";
-        while (repeat.equals("yes")) {
+        String playerAnswer = "yes";
+        while (playerAnswer.equals("yes")) {
             System.out.println("Введите первое число: ");
             int arg1 = scanner.nextInt();
             scanner.nextLine();
@@ -19,8 +19,8 @@ public class CalculatorTest {
 
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]");
-                repeat = scanner.next();
-            } while (!"yes".equals(repeat) && !"no".equals(repeat));
+                playerAnswer = scanner.next();
+            } while (!"yes".equals(playerAnswer) && !"no".equals(playerAnswer));
         }
     }
 }
