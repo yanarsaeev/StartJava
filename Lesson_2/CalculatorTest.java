@@ -17,8 +17,7 @@ public class CalculatorTest {
             Calculator calculator = new Calculator(arg1, sign, arg2);
             calculator.calculate();
 
-            System.out.println("Хотите продолжить вычисления? [yes/no]");
-            repeat = scanner.next();
+            repeat = "";
             while (!repeat.equals("yes") && !repeat.equals("no")) {
                 System.out.println("Хотите продолжить вычисления? [yes/no]");
                 repeat = scanner.next();
