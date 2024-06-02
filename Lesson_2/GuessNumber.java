@@ -19,33 +19,35 @@ public class GuessNumber {
             System.out.println("Вводит " + player1.getName() + " (игрок1): ");
             player1.setNum(scanner.nextInt());
             String result1 = "";
-            if (player1.getNum() != targetNum) {
-                if (player1.getNum() > targetNum) {
-                    result1 = "больше";
-                } else if (player1.getNum() < targetNum) {
-                    result1 = "меньше";
-                }
-                System.out.println("Число " + player1.getNum() + 
-                        " " + result1 + " того, что загадал компьютер");
-            } else {
+            if (player1.getNum() > targetNum) {
+                result1 = "больше";
+            } else if (player1.getNum() < targetNum) {
+                result1 = "меньше";
+            }
+
+            if (player1.getNum() == targetNum) {
                 System.out.println(player1.getName() + " (игрок1) выиграл!");
                 break;
+            } else {
+                System.out.println("Число " + player1.getNum() + 
+                        " " + result1 + " того, что загадал компьютер");
             }
 
             System.out.println("Вводит " + player2.getName() + " (игрок2): ");
             player2.setNum(scanner.nextInt());
             String result2 = "";
-            if (player2.getNum() != targetNum) {
-                if (player2.getNum() > targetNum) {
-                    result2 = "больше";
-                } else if (player2.getNum() < targetNum) {
-                    result2 = "меньше";
-                }
-                System.out.println("Число " + player2.getNum() + 
-                        " " + result2 + " того, что загадал компьютер");
-            } else {
+            if (player2.getNum() > targetNum) {
+                result2 = "больше";
+            } else if (player2.getNum() < targetNum) {
+                result2 = "меньше";
+            }
+
+            if (player2.getNum() == targetNum) {
                 System.out.println(player2.getName() + " (игрок2) выиграл!");
                 break;
+            } else {
+                System.out.println("Число " + player2.getNum() + 
+                        " " + result2 + " того, что загадал компьютер");
             }
         }
     }
