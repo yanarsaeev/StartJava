@@ -11,7 +11,7 @@ class Calculator {
 
     void calculate() {
         double result = 1.0;
-        String res = arg1 + " " + sign + " " + arg2 + " = ";
+        String strResult = arg1 + " " + sign + " " + arg2 + " = ";
         switch (sign) {
             case '+':
                 result = arg1 + arg2;
@@ -46,12 +46,12 @@ class Calculator {
         }
 
         if (sign != '^') {
-            res += raiseToPower();
+            strResult += raiseToPower();
         } else {
-            res += result;
+            strResult += result;
         }
 
-        System.out.println(res);
+        System.out.println(strResult);
     }
 
     double raiseToPower() {
