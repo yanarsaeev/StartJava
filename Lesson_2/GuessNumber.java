@@ -18,36 +18,40 @@ public class GuessNumber {
         while (true) {
             System.out.println("Вводит " + player1.getName() + " (игрок1): ");
             player1.setNum(scanner.nextInt());
-            String result1 = "";
-            if (player1.getNum() > targetNum) {
-                result1 = "больше";
-            } else if (player1.getNum() < targetNum) {
-                result1 = "меньше";
-            }
-
+            String str1 = "";
             if (player1.getNum() == targetNum) {
                 System.out.println(player1.getName() + " (игрок1) выиграл!");
                 break;
-            } else {
+            }
+
+            if (player1.getNum() > targetNum) {
+                str1 = "больше";
+            } else if (player1.getNum() < targetNum) {
+                str1 = "меньше";
+            }
+
+            if (player1.getNum() != targetNum) {
                 System.out.println("Число " + player1.getNum() + 
-                        " " + result1 + " того, что загадал компьютер");
+                        " " + str1 + " того, что загадал компьютер");
             }
 
             System.out.println("Вводит " + player2.getName() + " (игрок2): ");
             player2.setNum(scanner.nextInt());
-            String result2 = "";
-            if (player2.getNum() > targetNum) {
-                result2 = "больше";
-            } else if (player2.getNum() < targetNum) {
-                result2 = "меньше";
-            }
-
+            String str2 = "";
             if (player2.getNum() == targetNum) {
                 System.out.println(player2.getName() + " (игрок2) выиграл!");
                 break;
-            } else {
+            }
+
+            if (player2.getNum() > targetNum) {
+                str2 = "больше";
+            } else if (player2.getNum() < targetNum) {
+                str2 = "меньше";
+            }
+
+            if (player2.getNum() != targetNum) {
                 System.out.println("Число " + player2.getNum() + 
-                        " " + result2 + " того, что загадал компьютер");
+                        " " + str1 + " того, что загадал компьютер");
             }
         }
     }
