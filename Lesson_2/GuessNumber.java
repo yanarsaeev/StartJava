@@ -18,20 +18,20 @@ public class GuessNumber {
         while (true) {
             System.out.println("Вводит " + player1.getName() + " (игрок1): ");
             player1.setNum(scanner.nextInt());
-            String value = "";
+            String comparisonResult = "";
             if (player1.getNum() == targetNum) {
                 System.out.println(player1.getName() + " (игрок1) выиграл!");
                 break;
             }
 
             if (player1.getNum() > targetNum) {
-                value = "больше";
+                comparisonResult = "больше";
             } else if (player1.getNum() < targetNum) {
-                value = "меньше";
+                comparisonResult = "меньше";
             }
 
             System.out.println("Число " + player1.getNum() + 
-                    " " + value + " того, что загадал компьютер");
+                    " " + comparisonResult + " того, что загадал компьютер");
 
             System.out.println("Вводит " + player2.getName() + " (игрок2): ");
             player2.setNum(scanner.nextInt());
@@ -41,13 +41,13 @@ public class GuessNumber {
             }
 
             if (player2.getNum() > targetNum) {
-                value = "больше";
+                comparisonResult = "больше";
             } else if (player2.getNum() < targetNum) {
-                value = "меньше";
+                comparisonResult = "меньше";
             }
 
             System.out.println("Число " + player2.getNum() + 
-                    " " + value + " того, что загадал компьютер");
+                    " " + comparisonResult + " того, что загадал компьютер");
         }
     }
 }
