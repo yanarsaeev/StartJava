@@ -37,7 +37,7 @@ class Calculator {
                 }
                 break;
             case '^':
-                raiseToPower();
+                pow();
                 break;
             default:
                 System.out.println("Ошибка: операция \"" + sign + "\" не поддерживается" +
@@ -46,20 +46,21 @@ class Calculator {
         }
 
         if (sign != '^') {
-            strResult += raiseToPower();
-        } else {
             strResult += result;
+        } else {
+            strResult += pow();
         }
 
-        System.out.println(strResult);
+        if (arg2 != 0) {
+            System.out.println(strResult);
+        }
     }
 
-    double raiseToPower() {
+    double pow() {
         double result = 1.0;
         for (int i = 0; i < Math.abs(arg2); i++) {
             result *= arg1;
         }
-        result = (arg2 < 0) ? (1.0 / result) : result;
-        return result;
+        return result = (arg2 < 0) ? (1.0 / result) : result;
     }
 }
