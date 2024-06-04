@@ -22,9 +22,9 @@ class Calculator {
             case '/':
                 if (arg2 == 0) {
                     System.out.println("Ошибка: деление на ноль запрещено");
-                } else {
-                    result = arg1 / arg2;
+                    return;
                 }
+                result = arg1 / arg2;
                 break;
             case '*':
                 result = arg1 * arg2;
@@ -32,9 +32,9 @@ class Calculator {
             case '%':
                 if (arg2 == 0) {
                     System.out.println("Ошибка: деление на ноль запрещено");
-                } else {
-                    result = arg1 % arg2;
+                    return;
                 }
+                result = arg1 % arg2;
                 break;
             case '^':
                 pow();
@@ -51,9 +51,7 @@ class Calculator {
             strResult += pow();
         }
 
-        if (arg2 != 0) {
-            System.out.println(strResult);
-        }
+        System.out.println(strResult);
     }
 
     double pow() {
