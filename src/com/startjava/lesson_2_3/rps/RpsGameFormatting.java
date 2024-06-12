@@ -4,6 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RpsGameFormatting {
+    private static final String ROCK = "R";
+    private static final String SCISSORS = "S";
+    private static final String PAPER = "P";
+
     public static void main(String[] args) throws InterruptedException {
         Random r = new Random();
         Scanner console = new Scanner(System.in);
@@ -20,10 +24,6 @@ public class RpsGameFormatting {
 
         defineWinner(name1, sign1, name2, sign2);
     }
-
-    private static final String ROCK = "R";
-    private static final String SCISSORS = "S";
-    private static final String PAPER = "P";
 
     private static String inputName(Scanner console) {
         System.out.println("Введите имя игрока: ");
