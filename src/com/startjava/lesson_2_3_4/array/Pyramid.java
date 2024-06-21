@@ -2,7 +2,7 @@ package com.startjava.lesson_2_3_4.array;
 
 public class Pyramid {
     public static void main(String[] args) {
-        pyramidSort('0', '9', true);
+        pyramidSort('0', '9', false);
     }
 
     public static void pyramidSort(char startChar, char endChar, boolean ascending) {
@@ -13,12 +13,12 @@ public class Pyramid {
             for (int i = 0; i < charRange; i++) {
                 int currentChar = endChar - i;
 
-                for (int j = 0; j < i + 1; j++) {
-                    pyramid.append((char) currentChar);
-                }
-
                 for (int j = 0; j < charRange - i - 1; j++) {
                     pyramid.append(" ");
+                }
+
+                for (int j = 0; j < 2 * i + 1; j++) {
+                    pyramid.append((char) currentChar);
                 }
 
                 pyramid.append(System.lineSeparator());
@@ -27,12 +27,12 @@ public class Pyramid {
             for (int i = 0; i < charRange; i++) {
                 int currentChar = startChar + i;
 
-                for (int j = 0; j < i + 1; j++) {
-                    pyramid.append((char) currentChar);
-                }
-
                 for (int j = 0; j < charRange - i - 1; j++) {
                     pyramid.append(" ");
+                }
+
+                for (int j = 0; j < 2 * i + 1; j++) {
+                    pyramid.append((char) currentChar);
                 }
 
                 pyramid.append("\n");
