@@ -8,7 +8,7 @@ public class Factorial {
         findFactorial(new int[]{-22, -0});
     }
 
-    static void findFactorial(int... arr) {
+    private static void findFactorial(int... arr) {
         if (arr == null) {
             System.out.println("[!] Null");
         } else {

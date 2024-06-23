@@ -10,7 +10,7 @@ public class ReverseArray {
         reverse(new int[]{13, 8, 5, 3, 2, 1, 1});
     }
 
-    static void reverse(int[] arr) {
+    private static void reverse(int[] arr) {
         if (arr == null) {
             System.out.println("[!] Null");
         } else {

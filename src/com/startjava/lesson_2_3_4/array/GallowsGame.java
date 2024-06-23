@@ -94,7 +94,7 @@ public class GallowsGame {
         }
     }
 
-    public static void printGameInfo(char[] mask, char[] correctUsedLetters, char[] uncorrectUsedLetters,
+    private static void printGameInfo(char[] mask, char[] correctUsedLetters, char[] uncorrectUsedLetters,
                                      int correctUsedLettersCount, int uncorrectUsedLettersCount, int lives) {
         System.out.println("========GAME-INFO========");
         System.out.println("СЛОВО " + String.valueOf(mask));
@@ -114,7 +114,7 @@ public class GallowsGame {
         System.out.println();
     }
 
-    public static void printGallows(int lives) {
+    private static void printGallows(int lives) {
         System.out.println(" _______");
         System.out.println(" |/    |");
         System.out.println(" |    " + (lives < 5 ? "(_)" : " "));

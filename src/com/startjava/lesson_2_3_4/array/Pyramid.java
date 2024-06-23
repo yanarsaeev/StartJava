@@ -5,7 +5,7 @@ public class Pyramid {
         pyramidSort('0', '9', false);
     }
 
-    public static void pyramidSort(char startChar, char endChar, boolean ascending) {
+    private static void pyramidSort(char startChar, char endChar, boolean ascending) {
         int charRange = Math.abs(startChar - endChar) + 1;
         StringBuilder pyramid = new StringBuilder();
 
