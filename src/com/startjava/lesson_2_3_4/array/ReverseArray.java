@@ -10,19 +10,19 @@ public class ReverseArray {
         reverse(new int[]{13, 8, 5, 3, 2, 1, 1});
     }
 
-    private static void reverse(int[] arr) {
-        if (arr == null) {
+    private static void reverse(int[] numbersToProcess) {
+        if (numbersToProcess == null) {
             System.out.println("[!] Null");
         } else {
-            System.out.println("До реверса: " + Arrays.toString(arr));
+            System.out.println("До реверса: " + Arrays.toString(numbersToProcess));
 
-            for (int i = 0; i < arr.length / 2; i++) {
-                int temp = arr[i];
-                arr[i] = arr[arr.length - 1 - i];
-                arr[arr.length - 1 - i] = temp;
+            for (int i = 0; i < numbersToProcess.length / 2; i++) {
+                int temp = numbersToProcess[i];
+                numbersToProcess[i] = numbersToProcess[numbersToProcess.length - 1 - i];
+                numbersToProcess[numbersToProcess.length - 1 - i] = temp;
             }
 
-            System.out.println("После реверса: " + Arrays.toString(arr));
+            System.out.println("После реверса: " + Arrays.toString(numbersToProcess));
         }
     }
 }

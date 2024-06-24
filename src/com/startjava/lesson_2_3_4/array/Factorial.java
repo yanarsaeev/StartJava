@@ -8,24 +8,24 @@ public class Factorial {
         findFactorial(new int[]{-22, -0});
     }
 
-    private static void findFactorial(int... arr) {
-        if (arr == null) {
+    private static void findFactorial(int... numbersToProcess) {
+        if (numbersToProcess == null) {
             System.out.println("[!] Null");
         } else {
             long result = 1;
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i] > 0) {
-                    System.out.print(arr[i] + "! = ");
-                    for (int j = 1; j <= arr[i]; j++) {
+            for (int i = 0; i < numbersToProcess.length; i++) {
+                if (numbersToProcess[i] > 0) {
+                    System.out.print(numbersToProcess[i] + "! = ");
+                    for (int j = 1; j <= numbersToProcess[i]; j++) {
                         System.out.print(j == 1 ? j : " * " + j);
                         result *= j;
                     }
                     System.out.println(" = " + result);
                     result = 1;
-                } else if (arr[i] == 0) {
-                    System.out.println(arr[i] + "! = 0");
+                } else if (numbersToProcess[i] == 0) {
+                    System.out.println(numbersToProcess[i] + "! = 0");
                 } else {
-                    System.out.println("Ошибка: факториал " + arr[i] + "! не определен");
+                    System.out.println("Ошибка: факториал " + numbersToProcess[i] + "! не определен");
                 }
             }
         }
