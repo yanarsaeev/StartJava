@@ -1,20 +1,22 @@
 package com.startjava.lesson_2_3_4.array;
 
 import java.util.Arrays;
-import java.util.Queue;
 import java.util.Random;
 
-public class RemoveExceeding {
+public class RemovingExceed {
     public static void main(String[] args) {
-        removeExceedingDigits(13);
+        removeExceedingDigits(-1);
+        removeExceedingDigits(15);
+        removeExceedingDigits(0);
+        removeExceedingDigits(14);
     }
 
     private static void removeExceedingDigits(int address) {
         Random r = new Random();
         double[] randomDigits = new double[15];
 
-        if (address > randomDigits.length - 1 || address < 1) {
-            System.out.println("Введен некорректный адрес");
+        if (address > randomDigits.length - 1 || address < 0) {
+            System.out.println("Введен некорректный адрес ячейки");
         } else {
             for (int i = 0; i < randomDigits.length; i++) {
                 randomDigits[i] = (double) Math.round(r.nextDouble(0, 1) * 1000) / 1000;

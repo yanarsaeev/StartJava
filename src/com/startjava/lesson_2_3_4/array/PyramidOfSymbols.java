@@ -1,8 +1,10 @@
 package com.startjava.lesson_2_3_4.array;
 
-public class Pyramid {
+public class PyramidOfSymbols {
     public static void main(String[] args) {
-        pyramidSort('0', '9', false);
+        pyramidSort('0', '9', true);
+        pyramidSort('/', '!', false);
+        pyramidSort('A', 'J', false);
     }
 
     private static void pyramidSort(char startChar, char endChar, boolean ascending) {
