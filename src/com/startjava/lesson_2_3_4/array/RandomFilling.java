@@ -3,12 +3,15 @@ package com.startjava.lesson_2_3_4.array;
 import java.util.Arrays;
 import java.util.Random;
 
-public class RandomDigits {
+public class RandomFilling {
     public static void main(String[] args) {
-        rand(23, -10, 20);
+        fill(23, -10, 20);
+        fill(10, -30, 10);
+        fill(0, 34, -34);
+        fill(-8, 0, 0);
     }
 
-     static void rand(int length, int startSegment, int endSegment) {
+     static void fill(int length, int startSegment, int endSegment) {
         if (length < 1) {
             System.out.println("Длина отрезка не может быть меньше 1 (" + length + ")");
         } else {
@@ -37,6 +40,7 @@ public class RandomDigits {
             for (int randomDigit : randomDigits) {
                 System.out.print(randomDigit + " ");
             }
+            System.out.println();
         }
     }
 }
