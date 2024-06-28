@@ -37,7 +37,7 @@ public class PyramidOfSymbols {
                     pyramid.append((char) currentChar);
                 }
 
-                pyramid.append("\n");
+                pyramid.append(System.lineSeparator());
             }
         }
 
