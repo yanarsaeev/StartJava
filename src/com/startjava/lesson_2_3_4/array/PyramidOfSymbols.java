@@ -40,7 +40,6 @@ public class PyramidOfSymbols {
                 pyramid.append(System.lineSeparator());
             }
         }
-
         System.out.println(pyramid);
     }
 }
