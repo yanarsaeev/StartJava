@@ -17,10 +17,9 @@ public class Reverser {
         }
         System.out.printf("%3sДо реверса: %s", " ", Arrays.toString(toReverse));
         int length = toReverse.length;
-        for (int i = 0; i < length; i++) {
-            length--;
+        for (int i = 0; i < length - 1; i++) {
             int swap = toReverse[i];
-            toReverse[i] = toReverse[length];
+            toReverse[i] = toReverse[--length];
             toReverse[length] = swap;
         }
         System.out.println("\nПосле реверса: " + Arrays.toString(toReverse));
