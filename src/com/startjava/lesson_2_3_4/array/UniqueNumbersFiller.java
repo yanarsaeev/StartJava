@@ -11,7 +11,7 @@ public class UniqueNumbersFiller {
         fill(-8, 0, 0);
     }
 
-     static void fill(int length, int startSegment, int endSegment) {
+    static void fill(int length, int startSegment, int endSegment) {
         if (length < 1) {
             System.out.println("Длина отрезка не может быть меньше 1 (" + length + ")");
             return;
@@ -22,25 +22,25 @@ public class UniqueNumbersFiller {
 
         for (int i = 0; i < randomDigits.length; i++) {
             int randomDigit = r.nextInt(startSegment, endSegment + 1);
-             boolean isRepeat = true;
-             for (int j = 0; j < i; j++) {
-                 if (randomDigits[i] == randomDigit) {
-                     isRepeat = false;
-                     break;
-                 }
-             }
+            boolean isRepeat = true;
+            for(int j = 0; j < i; j++){
+                if (randomDigits[i] == randomDigit) {
+                    isRepeat = false;
+                    break;
+                }
+            }
 
-             if (isRepeat) {
-                 randomDigits[i] = randomDigit;
-             } else {
-                 i--;
-             }
+            if(isRepeat){
+                randomDigits[i] = randomDigit;
+            } else {
+                i--;
+            }
         }
 
         Arrays.sort(randomDigits);
 
         for (int randomDigit : randomDigits) {
-             System.out.print(randomDigit + " ");
+            System.out.print(randomDigit + " ");
         }
         System.out.println();
     }
