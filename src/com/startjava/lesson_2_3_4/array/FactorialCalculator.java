@@ -1,6 +1,6 @@
 package com.startjava.lesson_2_3_4.array;
 
-public class FactorialСalculator {
+public class FactorialCalculator {
     public static void main(String[] args) {
         calcFactorial(new int[0]);
         calcFactorial(null);
@@ -14,19 +14,19 @@ public class FactorialСalculator {
             System.out.println("Вы ввели некорректное значение (null or length == 0)");
             return;
         }
-        for (int i = 0; i < toFactorial.length; i++) {
+        for (int k : toFactorial) {
             long result = 1;
-            if (toFactorial[i] > 0) {
-                System.out.print(toFactorial[i] + "! = ");
-                for (int j = 1; j <= toFactorial[i]; j++) {
+            if (k > 0) {
+                System.out.print(k + "! = ");
+                for (int j = 1; j <= k; j++) {
                     System.out.print(j == 1 ? j : " * " + j);
                     result *= j;
                 }
                 System.out.println(" = " + result);
-            } else if (toFactorial[i] == 0) {
-                System.out.println(toFactorial[i] + "! = 0");
+            } else if (k == 0) {
+                System.out.println(k + "! = 0");
             } else {
-                System.out.println("Ошибка: факториал " + toFactorial[i] + "! не определен");
+                System.out.println("Ошибка: факториал " + k + "! не определен");
             }
         }
     }
