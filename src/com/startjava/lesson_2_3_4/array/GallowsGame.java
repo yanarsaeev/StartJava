@@ -20,11 +20,11 @@ public class GallowsGame {
         Arrays.fill(mask, '_');
 
 //      Использованные правильные буквы и их кол-во
-        char[] correctUsedLetters = new char[5];
+        char[] correctUsedLetters = new char[10];
         int correctUsedLettersCount = 0;
 
 //      Использованные неправильные буквы и их кол-во
-        char[] uncorrectUsedLetters = new char[5];
+        char[] uncorrectUsedLetters = new char[10];
         int uncorrectUsedLettersCount = 0;
 
         int lives = 5;
