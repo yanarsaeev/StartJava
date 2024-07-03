@@ -34,9 +34,6 @@ public class ExcessNumbersRemover {
         for (int i = 0; i < length; i++) {
             if (randomDigits[i] > digitInCell) {
                 randomDigits[i] = 0;
-            }
-
-            if (randomDigits[i] == 0) {
                 countZeroCells++;
             }
         }
