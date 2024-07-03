@@ -1,6 +1,7 @@
 package com.startjava.lesson_2_3_4.array;
 
 import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.Random;
 
 public class ExcessNumbersRemover {
@@ -48,13 +49,11 @@ public class ExcessNumbersRemover {
 
     private static void print(float[] toPrint) {
         int length = toPrint.length;
-        DecimalFormat decimalFormat = new DecimalFormat("0.###");
-        for (int i = 0; i < length / 2; i++) {
-            System.out.print(decimalFormat.format(toPrint[i]) + " ");
-        }
-        System.out.println();
-        for (int i = length / 2; i < length; i++) {
-            System.out.print(decimalFormat.format(toPrint[i]) + " ");
+        for (int i = 0; i < length; i++) {
+            System.out.printf("%.3f ", toPrint[i]);
+            if (i == length / 2) {
+                System.out.println();
+            }
         }
         System.out.println();
     }
