@@ -10,32 +10,28 @@ public class GallowsGame {
     }
 
     public static void startGame() {
-        String[] words = {"КАМЕРА", "БЛОК", "АБЗАЦ", "АКУЛА", "ПЕЧЕНЬЕ"};
+        String[] words = {"КАМЕРА", "СЛОВО", "АБЗАЦ", "АКУЛА", "ПЕЧЕНЬЕ"};
         Random random = new Random();
 
-        String word = words[random.nextInt(words.length)];
+        String hiddenWord = words[random.nextInt(words.length)];
         System.out.println("Добро пожаловать в игру \"Виселица\"!");
 
-        char[] mask = new char[word.length()];
+        char[] mask = new char[hiddenWord.length()];
         Arrays.fill(mask, '_');
 
-//      Использованные правильные буквы и их кол-во
-        char[] correctUsedLetters = new char[10];
+        char[] correctUsedLetters = new char[16];
         int correctUsedLettersCount = 0;
 
-//      Использованные неправильные буквы и их кол-во
-        char[] uncorrectUsedLetters = new char[10];
+        char[] uncorrectUsedLetters = new char[17];
         int uncorrectUsedLettersCount = 0;
 
         int lives = 5;
-
-        Scanner scanner = new Scanner(System.in);
-
-        while (lives > 0 && !String.valueOf(mask).equals(word)) {
+        while (lives > 0 && !String.valueOf(mask).equals(hiddenWord)) {
             printGameInfo(mask, correctUsedLetters, uncorrectUsedLetters, correctUsedLettersCount,
                     uncorrectUsedLettersCount, lives);
 
             System.out.print("Введите букву: ");
+            Scanner scanner = new Scanner(System.in);
             char letter = scanner.nextLine().toUpperCase().charAt(0);
 
             if (letter == ' ') {
@@ -44,8 +40,8 @@ public class GallowsGame {
             }
 
             boolean isLetterFound = false;
-            for (int i = 0; i < correctUsedLetters.length; i++) {
-                if (letter == correctUsedLetters[i]) {
+            for (char correctUsedLetter : correctUsedLetters) {
+                if (letter == correctUsedLetter) {
                     System.out.println("Буква уже была введена");
                     isLetterFound = true;
                     break;
@@ -53,8 +49,8 @@ public class GallowsGame {
             }
 
             if (!isLetterFound) {
-                for (int i = 0; i < uncorrectUsedLetters.length; i++) {
-                    if (letter == uncorrectUsedLetters[i]) {
+                for (char uncorrectUsedLetter : uncorrectUsedLetters) {
+                    if (letter == uncorrectUsedLetter) {
                         System.out.println("Буква уже была введена");
                         isLetterFound = true;
                         break;
@@ -63,8 +59,8 @@ public class GallowsGame {
             }
 
             if (!isLetterFound) {
-                for (int i = 0; i < word.length(); i++) {
-                    if (letter == word.charAt(i)) {
+                for (int i = 0; i < hiddenWord.length(); i++) {
+                    if (letter == hiddenWord.charAt(i)) {
                         isLetterFound = true;
                         mask[i] = letter;
                     }
@@ -87,11 +83,7 @@ public class GallowsGame {
             }
         }
 
-        if (lives == 0) {
-            System.out.println("К сожалению, вы не угадали слово! Ответ был - " + word);
-        } else {
-            System.out.println("Ура! Вы угадали слово! Ответ был - " + word);
-        }
+        printResult(lives, hiddenWord);
     }
 
     private static void printGameInfo(char[] mask, char[] correctUsedLetters, char[] uncorrectUsedLetters,
@@ -101,12 +93,12 @@ public class GallowsGame {
         System.out.println("Количество ходов: " + lives);
         System.out.println();
         System.out.println("Количество ошибок: " + uncorrectUsedLettersCount);
-        for (char letter: uncorrectUsedLetters) {
+        for (char letter : uncorrectUsedLetters) {
             System.out.print(letter + " ");
         }
         System.out.println();
         System.out.println("Количество угаданных букв: " + correctUsedLettersCount);
-        for (char letter: correctUsedLetters) {
+        for (char letter : correctUsedLetters) {
             System.out.print(letter + " ");
         }
         System.out.println();
@@ -115,11 +107,41 @@ public class GallowsGame {
     }
 
     private static void printGallows(int lives) {
-        System.out.println(" _______");
-        System.out.println(" |/    |");
-        System.out.println(" |    " + (lives < 5 ? "(_)" : " "));
-        System.out.println(" |    " + (lives < 3 ? "_|_" : " "));
-        System.out.println(" |   " + (lives < 2 ? "/ | \\" : " "));
-        System.out.println(" |     " + (lives < 1 ? "|\n |    / \\\n |   /   \\\n |\n_|________\n|        |" : " "));
+        String[] gallow = {" _______", " |/    |", " |    ", " |    ", " |   ", " |     ",
+                " |    ", " |   ", " |", "_|________\n|        |"};
+
+        if (lives < 5) {
+            gallow[2] += "(_)";
+        }
+
+        if (lives < 4) {
+            gallow[3] += "_|_";
+        }
+
+        if (lives < 3) {
+            gallow[4] += "/ | \\";
+        }
+
+        if (lives < 2) {
+            gallow[5] += "|";
+            gallow[6] += "/ ";
+        }
+
+        if (lives < 1) {
+            gallow[6] += "\\";
+            gallow[7] += "/   \\";
+        }
+
+        for (String str : gallow) {
+            System.out.println(str);
+        }
+    }
+
+    private static void printResult(int lives, String hiddenWord) {
+        if (lives == 0) {
+            System.out.println("К сожалению, вы не угадали слово! Ответ был - " + hiddenWord);
+        } else {
+            System.out.println("Ура! Вы угадали слово! Ответ был - " + hiddenWord);
+        }
     }
 }
