@@ -17,31 +17,37 @@ public class UniqueNumbersFiller {
             return;
         }
 
-        int[] randomDigits = new int[(length / 4) * 3];
+        int arrLength = (int) Math.round(0.75 * (endSegment - startSegment + 1));
+        int[] uniqueDigits = new int[arrLength];
         Random r = new Random();
 
-        for (int i = 0; i < randomDigits.length; i++) {
-            int randomDigit = r.nextInt(startSegment, endSegment + 1);
-            boolean isRepeat = true;
-            for(int j = 0; j < i; j++){
-                if (randomDigits[i] == randomDigit) {
-                    isRepeat = false;
-                    break;
-                }
+        int count = 0;
+        while (count < arrLength) {
+            int digit = r.nextInt(endSegment - startSegment + 1) + startSegment;
+            boolean isUnique = contains(uniqueDigits, digit);
+
+            if (!isUnique) {
+                continue;
             }
 
-            if(isRepeat){
-                randomDigits[i] = randomDigit;
-            } else {
-                i--;
-            }
+            uniqueDigits[count] = digit;
+            count++;
         }
 
-        Arrays.sort(randomDigits);
-
-        for (int randomDigit : randomDigits) {
-            System.out.print(randomDigit + " ");
+        Arrays.sort(uniqueDigits);
+        System.out.println("Отсортированный массив: ");
+        for (int i = 0; i < length; i++) {
+            System.out.print(uniqueDigits[i] + " ");
         }
         System.out.println();
+    }
+
+    private static boolean contains(int[] uniqueDigits, int num) {
+        for (int uniqueDigit : uniqueDigits) {
+            if (uniqueDigit == num) {
+                return false;
+            }
+        }
+        return true;
     }
 }
