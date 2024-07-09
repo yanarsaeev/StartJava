@@ -19,10 +19,10 @@ public class GallowsGame {
         char[] mask = new char[hiddenWord.length()];
         Arrays.fill(mask, '_');
 
-        char[] correctUsedLetters = new char[16];
+        char[] correctUsedLetters = new char[5];
         int correctUsedLettersCount = 0;
 
-        char[] uncorrectUsedLetters = new char[17];
+        char[] uncorrectUsedLetters = new char[28];
         int uncorrectUsedLettersCount = 0;
 
         int lives = 5;
