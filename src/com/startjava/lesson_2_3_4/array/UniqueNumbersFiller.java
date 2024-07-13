@@ -11,22 +11,21 @@ public class UniqueNumbersFiller {
         fill(-8, 0, 0);
     }
 
-    static void fill(int length, int startSegment, int endSegment) {
-        if (length < 1) {
-            System.out.println("Длина отрезка не может быть меньше 1 (" + length + ")");
+    static void fill(int numsCount, int startSegment, int endSegment) {
+        if (numsCount < 1) {
+            System.out.println("Длина отрезка не может быть меньше 1 (" + numsCount + ")");
             return;
         }
 
-        int arrLength = (int) Math.round(0.75 * (endSegment - startSegment + 1));
-        int[] uniqueDigits = new int[arrLength];
+        int length = (int) Math.round(0.75 * (endSegment - startSegment + 1));
+        int[] uniqueDigits = new int[length];
         Random r = new Random();
 
         int count = 0;
-        while (count < arrLength) {
-            int digit = r.nextInt(endSegment - startSegment + 1) + startSegment;
-            boolean isUnique = contains(uniqueDigits, digit);
+        while (count < length) {
+            int digit = r.nextInt(startSegment, endSegment);
 
-            if (!isUnique) {
+            if (!contains(uniqueDigits, digit)) {
                 continue;
             }
 
