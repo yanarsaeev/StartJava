@@ -8,26 +8,21 @@ public class AsciiPyramidPrinter {
     }
 
     private static void printPyramid(char startChar, char endChar, boolean ascending) {
-        int charRange = Math.abs(startChar - endChar) + 1;
-        StringBuilder pyramid = new StringBuilder();
-
-        char ch;
-        if ((int) startChar > (int) endChar) {
-            ch = startChar;
+        if (startChar > endChar) {
+            char swap;
+            swap = startChar;
             startChar = endChar;
-            endChar = ch;
+            endChar = swap;
         }
 
+        int charRange = Math.abs(startChar - endChar) + 1;
+        StringBuilder pyramid = new StringBuilder();
         for (int i = 0; i < charRange; i++) {
+            pyramid.append(" ".repeat(charRange - i - 1));
+
             int currentChar = ascending ? startChar + i : endChar - i;
 
-            for (int j = 0; j < charRange - i - 1; j++) {
-                pyramid.append(" ");
-            }
-            for (int j = 0; j < 2 * i + 1; j++) {
-                pyramid.append((char) currentChar);
-            }
-
+            pyramid.append(String.valueOf((char) currentChar).repeat(Math.max(0, 2 * i + 1)));
             pyramid.append(System.lineSeparator());
         }
 
