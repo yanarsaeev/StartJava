@@ -107,33 +107,18 @@ public class GallowsGame {
     }
 
     private static void printGallows(int lives) {
-        String[] gallow = {" _______", " |/    |", " |    ", " |    ", " |   ", " |     ",
-                " |    ", " |   ", " |", "_|________\n|        |"};
+        String[] gallows = {"_______",
+                "|     |",
+                "|     @",
+                "|    /|\\",
+                "|    / \\",
+                "| GAME OVER!"
+        };
 
-        if (lives < 5) {
-            gallow[2] += "(_)";
-        }
-
-        if (lives < 4) {
-            gallow[3] += "_|_";
-        }
-
-        if (lives < 3) {
-            gallow[4] += "/ | \\";
-        }
-
-        if (lives < 2) {
-            gallow[5] += "|";
-            gallow[6] += "/ ";
-        }
-
-        if (lives < 1) {
-            gallow[6] += "\\";
-            gallow[7] += "/   \\";
-        }
-
-        for (String str : gallow) {
-            System.out.println(str);
+        int count = 5;
+        count -= lives;
+        for (int i = 0; i <= count; i++) {
+            System.out.println(gallows[i]);
         }
     }
 
