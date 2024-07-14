@@ -1,7 +1,5 @@
 package com.startjava.lesson_2_3_4.array;
 
-import java.text.DecimalFormat;
-import java.util.Arrays;
 import java.util.Random;
 
 public class ExcessNumbersRemover {
