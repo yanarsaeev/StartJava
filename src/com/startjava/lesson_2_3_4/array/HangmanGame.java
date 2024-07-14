@@ -4,13 +4,14 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class GallowsGame {
+public class HangmanGame {
     public static void main(String[] args) {
         startGame();
     }
 
     public static void startGame() {
         String[] words = {"КАМЕРА", "СЛОВО", "АБЗАЦ", "АКУЛА", "ПЕЧЕНЬЕ"};
+
         Random random = new Random();
 
         String hiddenWord = words[random.nextInt(words.length)];
@@ -25,13 +26,20 @@ public class GallowsGame {
         char[] uncorrectUsedLetters = new char[33 - hiddenWord.length()];
         int uncorrectUsedLettersCount = 0;
 
-        int lives = 5;
+        String[] gallows = {"_______",
+                "|     |",
+                "|     @",
+                "|    /|\\",
+                "|    / \\",
+                "| GAME OVER!"
+        };
+        int lives = gallows.length;
+        Scanner scanner = new Scanner(System.in);
         while (lives > 0 && !String.valueOf(mask).equals(hiddenWord)) {
             printGameInfo(mask, correctUsedLetters, uncorrectUsedLetters, correctUsedLettersCount,
                     uncorrectUsedLettersCount, lives);
 
             System.out.print("Введите букву: ");
-            Scanner scanner = new Scanner(System.in);
             char letter = scanner.nextLine().toUpperCase().charAt(0);
 
             if (letter == ' ') {
@@ -73,12 +81,12 @@ public class GallowsGame {
                     if (lives > 5) {
                         lives = 5;
                     }
-                    printGallows(lives);
+                    printGallows(lives, gallows);
                 } else {
                     uncorrectUsedLetters[uncorrectUsedLettersCount] = letter;
                     uncorrectUsedLettersCount++;
                     lives--;
-                    printGallows(lives);
+                    printGallows(lives, gallows);
                 }
             }
         }
@@ -91,31 +99,18 @@ public class GallowsGame {
         System.out.println("========GAME-INFO========");
         System.out.println("СЛОВО " + String.valueOf(mask));
         System.out.println("Количество ходов: " + lives);
-        System.out.println();
-        System.out.println("Количество ошибок: " + uncorrectUsedLettersCount);
-        for (char letter : uncorrectUsedLetters) {
-            System.out.print(letter + " ");
-        }
-        System.out.println();
-        System.out.println("Количество угаданных букв: " + correctUsedLettersCount);
-        for (char letter : correctUsedLetters) {
-            System.out.print(letter + " ");
-        }
-        System.out.println();
-        System.out.println("=========================");
-        System.out.println();
+
+        System.out.println("\nКоличество ошибок: " + uncorrectUsedLettersCount);
+        System.out.println(Arrays.toString(uncorrectUsedLetters));
+
+        System.out.println("\nКоличество угаданных букв: " + correctUsedLettersCount);
+        System.out.println(Arrays.toString(correctUsedLetters));
+
+        System.out.println("\n=========================\n");
     }
 
-    private static void printGallows(int lives) {
-        String[] gallows = {"_______",
-                "|     |",
-                "|     @",
-                "|    /|\\",
-                "|    / \\",
-                "| GAME OVER!"
-        };
-
-        int count = 5;
+    private static void printGallows(int lives, String[] gallows) {
+        int count = gallows.length;
         count -= lives;
         for (int i = 0; i <= count; i++) {
             System.out.println(gallows[i]);
