@@ -3,18 +3,34 @@ package com.startjava.lesson_2_3_4.calculator;
 import java.text.DecimalFormat;
 
 class Calculator {
-    private final String[] expression;
+    private static String[] expression;
+    private static final int EXPRESSION_LENGTH = 3;
 
-    public Calculator(String expression) {
-        this.expression = expression.split(" ");
-    }
+    static void calculate(String exp) {
+        Calculator.expression = exp.trim().replaceAll("\\s{2,}", " ").split(" ");
+        int length = Calculator.expression.length;
 
-    void calculate() {
+        if (EXPRESSION_LENGTH != length) {
+            try {
+                throw new RuntimeException();
+            } catch (RuntimeException e) {
+                System.out.println("Некорректная длина выражения");
+                return;
+            }
+        }
+
         double result = 1.0;
         String strResult = "";
-        for (int i = 0; i < expression.length; i++) {
-            int arg1 = Integer.parseInt(expression[0]);
-            int arg2 = Integer.parseInt(expression[expression.length - 1]);
+        for (int i = 0; i < length; i++) {
+            int arg1 = 0;
+            int arg2 = 0;
+            try {
+                arg1 = Integer.parseInt(expression[0]);
+                arg2 = Integer.parseInt(expression[length - 1]);
+            } catch (RuntimeException e) {
+                System.out.println("Ошибка: " + e + " (Одно из введенных чисел не является целым)");
+                return;
+            }
             String sign = expression[1];
             switch (sign) {
                 case "+":
@@ -25,8 +41,12 @@ class Calculator {
                     break;
                 case "/":
                     if (arg2 == 0) {
-                        System.out.println("Ошибка: Деление на ноль запрещено");
-                        return;
+                        try {
+                            throw new RuntimeException();
+                        } catch (RuntimeException e) {
+                            System.out.println("Ошибка: " + e + " (На ноль делить нельзя)");
+                            return;
+                        }
                     }
                     result = (double) arg1 / arg2;
                     break;
