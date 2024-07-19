@@ -33,13 +33,9 @@ class Calculator {
             }
             String sign = expression[1];
             switch (sign) {
-                case "+":
-                    result = arg1 + arg2;
-                    break;
-                case "-":
-                    result = arg1 - arg2;
-                    break;
-                case "/":
+                case "+" -> result = arg1 + arg2;
+                case "-"-> result = arg1 - arg2;
+                case "/" -> {
                     if (arg2 == 0) {
                         try {
                             throw new RuntimeException();
@@ -49,20 +45,13 @@ class Calculator {
                         }
                     }
                     result = (double) arg1 / arg2;
-                    break;
-                case "*":
-                    result = arg1 * arg2;
-                    break;
-                case "^":
-                    result = Math.pow(arg1, arg2);
-                    break;
-                case "%":
-                    result = Math.floorMod(arg1, arg2);
-                    break;
-                default:
+                }
+                case "*" -> result = arg1 * arg2;
+                case "^" -> result = Math.pow(arg1, arg2);
+                case "%" -> result = Math.floorMod(arg1, arg2);
+                default ->
                     System.out.println("Ошибка: операция \"" + sign + "\" не поддерживается" +
                             "\nДоступны следующие операции: +, -, *, /, ^, %");
-                    return;
             }
             DecimalFormat decimalResult = new DecimalFormat("0.#");
             strResult = arg1 + " " + sign + " " + arg2 + " = " + decimalResult.format(result);
