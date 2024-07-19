@@ -33,11 +33,7 @@ public class UniqueNumbersFiller {
             count++;
         }
 
-        Arrays.sort(uniqueDigits);
-        System.out.println("Отсортированный массив: ");
-        for (int i = 0; i < length; i++) {
-            System.out.print(uniqueDigits[i] + " ");
-        }
+        sort(uniqueDigits, length, numsCount);
         System.out.println();
     }
 
@@ -48,5 +44,19 @@ public class UniqueNumbersFiller {
             }
         }
         return true;
+    }
+
+    private static void sort(int[] uniqueDigits, int length, int numsCount) {
+        Arrays.sort(uniqueDigits);
+        System.out.println("Отсортированный массив: ");
+        int count = 0;
+        for (int i = 0; i < length; i++) {
+            System.out.print(uniqueDigits[i] + " ");
+            count++;
+            if (count == numsCount) {
+                System.out.println();
+                count = 0;
+            }
+        }
     }
 }
