@@ -16,7 +16,7 @@ public class AsciiPyramidPrinter {
 
         int charRange = Math.abs(startChar - endChar) + 1;
         StringBuilder pyramid = new StringBuilder();
-        for (int i = 0; i < charRange; i++) {
+        for (int i = 1; i < charRange; i++) {
             int currentChar = ascending ? startChar + i : endChar - i;
             pyramid.append(" ".repeat(charRange - i - 1))
                     .append(String.valueOf((char) currentChar).repeat(2 * i + 1))
