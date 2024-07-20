@@ -14,7 +14,8 @@ public class CalculatorTest {
 
             System.out.print("Хотите продолжить вычисления? [yes / no] ");
             playerAnswer = scanner.nextLine().toLowerCase();
-            while (!"yes".equals(playerAnswer) && !"no".equals(playerAnswer)) {
+
+            if (!"yes".equals(playerAnswer) && !"no".equals(playerAnswer)) {
                 System.out.print("Введите корректный ответ [yes / no]: ");
                 playerAnswer = scanner.nextLine().toLowerCase();
             }
