@@ -14,7 +14,7 @@ class Calculator {
             try {
                 throw new RuntimeException();
             } catch (RuntimeException e) {
-                System.out.println("Некорректная длина выражения");
+                System.out.println(e.getMessage());
                 return;
             }
         }
@@ -28,7 +28,7 @@ class Calculator {
                 arg1 = Integer.parseInt(expression[0]);
                 arg2 = Integer.parseInt(expression[length - 1]);
             } catch (RuntimeException e) {
-                System.out.println("Ошибка: " + e + " (Одно из введенных чисел не является целым)");
+                System.out.println(e.getMessage());
                 return;
             }
             String sign = expression[1];
@@ -40,7 +40,7 @@ class Calculator {
                         try {
                             throw new RuntimeException();
                         } catch (RuntimeException e) {
-                            System.out.println("Ошибка: " + e + " (На ноль делить нельзя)");
+                            System.out.println(e.getMessage());
                             return;
                         }
                     }
