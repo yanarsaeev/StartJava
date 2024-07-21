@@ -51,7 +51,7 @@ public class UniqueNumbersFiller {
         System.out.println("Отсортированный массив: ");
         int count = 0;
         for (int i = 0; i < length; i++) {
-            System.out.print(uniqueDigits[i] + " ");
+            System.out.printf("%5d", uniqueDigits[i]);
             count++;
             if (count == numsCount) {
                 System.out.println();
