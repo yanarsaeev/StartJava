@@ -78,8 +78,8 @@ public class HangmanGame {
                     correctUsedLetters[correctUsedLettersCount] = letter;
                     correctUsedLettersCount++;
                     lives++;
-                    if (lives > 5) {
-                        lives = 5;
+                    if (lives > gallows.length) {
+                        lives = gallows.length;
                     }
                     printGallows(lives, gallows);
                 } else {
