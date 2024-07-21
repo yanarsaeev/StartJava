@@ -28,19 +28,19 @@ class Calculator {
                 arg1 = Integer.parseInt(expression[0]);
                 arg2 = Integer.parseInt(expression[length - 1]);
             } catch (RuntimeException e) {
-                System.out.println(e.getMessage());
+                System.out.println(Double.NaN);
                 return;
             }
             String sign = expression[1];
             switch (sign) {
                 case "+" -> result = arg1 + arg2;
-                case "-"-> result = arg1 - arg2;
+                case "-" -> result = arg1 - arg2;
                 case "/" -> {
                     if (arg2 == 0) {
                         try {
                             throw new RuntimeException();
                         } catch (RuntimeException e) {
-                            System.out.println(e.getMessage());
+                            System.out.println("На ноль делить нельзя");
                             return;
                         }
                     }
@@ -49,11 +49,19 @@ class Calculator {
                 case "*" -> result = arg1 * arg2;
                 case "^" -> result = Math.pow(arg1, arg2);
                 case "%" -> result = Math.floorMod(arg1, arg2);
-                default ->
+                default -> {
                     System.out.println("Ошибка: операция \"" + sign + "\" не поддерживается" +
                             "\nДоступны следующие операции: +, -, *, /, ^, %");
+                    return;
+                }
             }
-            DecimalFormat decimalResult = new DecimalFormat("0.#");
+
+            DecimalFormat decimalResult;
+            if (result == 0.0) {
+                decimalResult = new DecimalFormat("0");
+            } else {
+                decimalResult = new DecimalFormat("0.###");
+            }
             strResult = arg1 + " " + sign + " " + arg2 + " = " + decimalResult.format(result);
         }
         System.out.println(strResult);
