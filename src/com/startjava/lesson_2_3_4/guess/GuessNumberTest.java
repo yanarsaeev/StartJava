@@ -13,18 +13,15 @@ public class GuessNumberTest {
         GuessNumber game = new GuessNumber(player1.getName(), player2.getName());
 
         String playerAnswer = "yes";
-        while (true) {
+        while (!"no".equals(playerAnswer)) {
             if ("yes".equals(playerAnswer)) {
                 game.start();
 
                 System.out.print("Хотите продолжить игру? [yes / no]: ");
-                playerAnswer = scanner.nextLine().toLowerCase();
-            } else if ("no".equals(playerAnswer)) {
-                break;
             } else {
                 System.out.print("Введите корректный ответ [yes / no]: ");
-                playerAnswer = scanner.nextLine().toLowerCase();
             }
+            playerAnswer = scanner.nextLine().toLowerCase();
         }
     }
 }
