@@ -31,12 +31,8 @@ class Calculator {
 
             if ("%".equals(sign) || "/".equals(sign)) {
                 if (arg2 == 0) {
-                    try {
-                        throw new RuntimeException();
-                    } catch (RuntimeException e) {
-                        System.out.println("На ноль делить нельзя!");
-                        return Double.NaN;
-                    }
+                    System.out.println("На ноль делить нельзя!");
+                    return Double.NaN;
                 }
             }
 
