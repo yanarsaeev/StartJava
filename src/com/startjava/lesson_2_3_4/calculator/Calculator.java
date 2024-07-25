@@ -4,50 +4,48 @@ class Calculator {
     private static final int EXPRESSION_LENGTH = 3;
 
     public static double calculate(String expression) {
-        String[] divisionParts = expression.split(" ");
-        int length = divisionParts.length;
+        String[] args = expression.split(" ");
+        int length = args.length;
 
         if (length != EXPRESSION_LENGTH) {
             try {
                 throw new RuntimeException();
             } catch (RuntimeException e) {
-                System.out.println(e.getMessage());
+                System.out.println("Длина выражения не равна 3!");
+                return Double.NaN;
             }
         }
 
         double result = 1.0;
-        for (int i = 0; i < length; i++) {
-            int arg1 = 0;
-            int arg2 = 0;
+        int arg1 = 0;
+        int arg2 = 0;
 
-            try {
-                arg1 = Integer.parseInt(divisionParts[0]);
-                arg2 = Integer.parseInt(divisionParts[length - 1]);
-            } catch (RuntimeException e) {
-                System.out.println("Одно из введеных чисел не целое");
-            }
+        try {
+            arg1 = Integer.parseInt(args[0]);
+            arg2 = Integer.parseInt(args[length - 1]);
+        } catch (RuntimeException e) {
+            System.out.println("Одно из введённых чисел не целое");
+            return Double.NaN;
+        }
 
-            String sign = divisionParts[1];
+        String sign = args[1];
 
-            if ("%".equals(sign) || "/".equals(sign)) {
+        switch (sign) {
+            case "+" -> result = arg1 + arg2;
+            case "-" -> result = arg1 - arg2;
+            case "/", "%" -> {
                 if (arg2 == 0) {
                     System.out.println("На ноль делить нельзя!");
                     return Double.NaN;
                 }
+                result = sign.equals("%") ? Math.floorMod(arg1, arg2) : (double) arg1 / arg2;
             }
-
-            switch (sign) {
-                case "+" -> result = arg1 + arg2;
-                case "-" -> result = arg1 - arg2;
-                case "/" -> result = (double) arg1 / arg2;
-                case "*" -> result = arg1 * arg2;
-                case "^" -> result = Math.pow(arg1, arg2);
-                case "%" -> result = Math.floorMod(arg1, arg2);
-                default -> {
-                    System.out.println("Ошибка: операция \"" + sign + "\" не поддерживается" +
-                            "\nДоступны следующие операции: +, -, *, /, ^, %");
-                    return Double.NaN;
-                }
+            case "*" -> result = arg1 * arg2;
+            case "^" -> result = Math.pow(arg1, arg2);
+            default -> {
+                System.out.println("Ошибка: операция \"" + sign + "\" не поддерживается" +
+                        "\nДоступны следующие операции: +, -, *, /, ^, %");
+                return Double.NaN;
             }
         }
         return result;
