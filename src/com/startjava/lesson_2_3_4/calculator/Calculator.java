@@ -16,9 +16,9 @@ class Calculator {
             }
         }
 
-        double result = 1.0;
-        int arg1 = 0;
-        int arg2 = 0;
+        double result;
+        int arg1;
+        int arg2;
 
         try {
             arg1 = Integer.parseInt(args[0]);
