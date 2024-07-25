@@ -10,15 +10,15 @@ public class CalculatorTest {
         while (!"no".equals(userAnswer)) {
             if ("yes".equals(userAnswer)) {
                 System.out.print("Введите математическое выражение: ");
-                String expression = scanner.nextLine().trim().replaceAll("\\s{2,}", " ");
+                String expression = scanner.nextLine().trim().replaceAll("\\s+", " ");
 
                 double result = Calculator.calculate(expression);
                 
-                if (Double.isNaN(result)) {
-                    continue;
+                if (!Double.isNaN(result)) {
+                    printResult(expression, result);
                 }
 
-                printResult(expression, result);
+                System.out.print("Хотите продолжить вычисления? [yes / no] ");
             } else {
                 System.out.print("Введите корректный ответ [yes / no]: ");
             }
@@ -27,10 +27,7 @@ public class CalculatorTest {
     }
 
     public static void printResult(String expression, double result) {
-        String[] divisionParts = expression.split(" ");
-        DecimalFormat decimalFormat = new DecimalFormat("0.###");
-        System.out.println(divisionParts[0] + " " + divisionParts[1] +
-                " " + divisionParts[divisionParts.length - 1] + " = " + decimalFormat.format(result));
-        System.out.print("Хотите продолжить вычисления? [yes / no] ");
+        DecimalFormat df = new DecimalFormat("0.###");
+        System.out.println(expression + " = " + df.format(result));
     }
 }
