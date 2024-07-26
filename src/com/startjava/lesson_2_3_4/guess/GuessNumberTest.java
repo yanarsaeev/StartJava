@@ -6,11 +6,11 @@ public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("player1 name: ");
-        Player player1 = new Player(scanner.nextLine());
+        String name1 = scanner.nextLine();
         System.out.print("player2 name: ");
-        Player player2 = new Player(scanner.nextLine());
+        String name2 = scanner.nextLine();
 
-        GuessNumber game = new GuessNumber(player1.getName(), player2.getName());
+        GuessNumber game = new GuessNumber(name1, name2);
 
         String playerAnswer = "yes";
         while (!"no".equals(playerAnswer)) {
