@@ -7,45 +7,32 @@ class Calculator {
         String[] args = expression.split(" ");
         int length = args.length;
 
-        if (length != EXPRESSION_LENGTH) {
-            try {
-                throw new RuntimeException();
-            } catch (RuntimeException e) {
-                System.out.println("Длина выражения не равна 3!");
-                return Double.NaN;
-            }
-        }
+        if (length != EXPRESSION_LENGTH) throw new IllegalArgumentException("Длина строки больше 3!");
 
-        double result;
-        int arg1;
-        int arg2;
+        double result = 0;
+        int arg1 = 0;
+        int arg2 = 0;
 
         try {
             arg1 = Integer.parseInt(args[0]);
             arg2 = Integer.parseInt(args[length - 1]);
-        } catch (RuntimeException e) {
-            System.out.println("Одно из введённых чисел не целое");
-            return Double.NaN;
+        } catch (Throwable e) {
+            throw new IllegalArgumentException("Одно из введенных чисел не целое!");
         }
 
         String sign = args[1];
-
         switch (sign) {
             case "+" -> result = arg1 + arg2;
             case "-" -> result = arg1 - arg2;
             case "/", "%" -> {
-                if (arg2 == 0) {
-                    System.out.println("На ноль делить нельзя!");
-                    return Double.NaN;
-                }
+                if (arg2 == 0) throw new ArithmeticException("На ноль делить нельзя!");
                 result = sign.equals("%") ? Math.floorMod(arg1, arg2) : (double) arg1 / arg2;
             }
             case "*" -> result = arg1 * arg2;
             case "^" -> result = Math.pow(arg1, arg2);
             default -> {
-                System.out.println("Ошибка: операция \"" + sign + "\" не поддерживается" +
+                throw new IllegalArgumentException("операция \"" + sign + "\" не поддерживается" +
                         "\nДоступны следующие операции: +, -, *, /, ^, %");
-                return Double.NaN;
             }
         }
         return result;
