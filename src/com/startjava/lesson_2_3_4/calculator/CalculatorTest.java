@@ -12,10 +12,13 @@ public class CalculatorTest {
                 System.out.print("Введите математическое выражение: ");
                 String expression = scanner.nextLine().trim().replaceAll("\\s+", " ");
 
-                double result = Calculator.calculate(expression);
-                
-                if (!Double.isNaN(result)) {
+                double result;
+
+                try {
+                    result = Calculator.calculate(expression);
                     printResult(expression, result);
+                } catch (Exception e) {
+                    System.out.println("Ошибка: " + e.getMessage());
                 }
 
                 System.out.print("Хотите продолжить вычисления? [yes / no] ");
