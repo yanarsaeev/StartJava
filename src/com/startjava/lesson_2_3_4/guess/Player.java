@@ -6,6 +6,8 @@ public class Player {
     private final String name;
     private final int[] nums = new int[10];
 
+    private int attempt;
+
     public Player(String name) {
         this.name = name;
     }
@@ -14,33 +16,22 @@ public class Player {
         return name;
     }
 
-    void setNums(int idx, int num) {
-        this.nums[idx - 1] = num;
+    int getAttempt() {
+        return attempt;
     }
 
-    int getNum(int num) {
-        for (int i : nums) {
-            if (num == i) {
-                return num;
-            }
-        }
-        return 0;
+    void setAttempt(int idx, int attempt) {
+        this.attempt = attempt;
+        this.nums[idx - 1] = attempt;
     }
 
     void getNums(int num) {
-        System.out.println(Arrays.toString(Arrays.copyOf(nums, num)));
+        int[] temp = Arrays.copyOf(nums, num);
+        System.out.println(Arrays.toString(Arrays.copyOfRange(temp, 0, temp.length / 2)) + "\n" +
+                Arrays.toString(Arrays.copyOfRange(temp, temp.length / 2, temp.length)));
     }
 
     void clearNums(int num) {
         Arrays.fill(nums, 0, num, 0);
-    }
-
-    boolean hasWon(int targetNum) {
-        for (int num : this.nums) {
-            if (num == targetNum) {
-                return true;
-            }
-        }
-        return false;
     }
 }
