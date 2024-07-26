@@ -1,10 +1,10 @@
 package com.startjava.lesson_2_3_4.guess;
 
-public class Player {
-    private String name;
-    private int num;
+import java.util.Arrays;
 
-    private int[] nums = new int[10];
+public class Player {
+    private final String name;
+    private final int[] nums = new int[10];
 
     public Player(String name) {
         this.name = name;
@@ -14,24 +14,33 @@ public class Player {
         return name;
     }
 
-    int getNum() {
-        return num;
+    void setNums(int idx, int num) {
+        this.nums[idx - 1] = num;
     }
 
-    void setNum(int num) {
-        this.num = num;
-
-        int count = 0;
-        while (count < nums.length) {
-            if (nums[count] == 0) {
-                nums[count] = num;
-                break;
+    int getNum(int num) {
+        for (int i : nums) {
+            if (num == i) {
+                return num;
             }
-            count++;
         }
+        return 0;
     }
 
-    int[] getNums() {
-        return nums;
+    void getNums(int num) {
+        System.out.println(Arrays.toString(Arrays.copyOf(nums, num)));
+    }
+
+    void clearNums(int num) {
+        Arrays.fill(nums, 0, num, 0);
+    }
+
+    boolean hasWon(int targetNum) {
+        for (int num : this.nums) {
+            if (num == targetNum) {
+                return true;
+            }
+        }
+        return false;
     }
 }
