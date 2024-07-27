@@ -16,22 +16,27 @@ public class Player {
         return name;
     }
 
+    void setNum(int playerNum) {
+        nums[attempt - 1] = playerNum;
+    }
+
+    int getNum() {
+        return nums[attempt - 1];
+    }
+
     int getAttempt() {
         return attempt;
     }
 
-    void setAttempt(int idx, int attempt) {
+    void setAttempt(int attempt) {
         this.attempt = attempt;
-        this.nums[idx - 1] = attempt;
     }
 
-    void getNums(int num) {
-        int[] temp = Arrays.copyOf(nums, num);
-        System.out.println(Arrays.toString(Arrays.copyOfRange(temp, 0, temp.length / 2)) + "\n" +
-                Arrays.toString(Arrays.copyOfRange(temp, temp.length / 2, temp.length)));
+    int[] getNums() {
+        return Arrays.copyOf(nums, attempt);
     }
 
-    void clearNums(int num) {
-        Arrays.fill(nums, 0, num, 0);
+    void clearNums() {
+        Arrays.fill(nums, 0, attempt, 0);
     }
 }
