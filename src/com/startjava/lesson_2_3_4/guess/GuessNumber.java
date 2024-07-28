@@ -1,6 +1,5 @@
 package com.startjava.lesson_2_3_4.guess;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,27 +13,29 @@ public class GuessNumber {
         player2 = new Player(name2);
     }
 
-    void generate() {
+    void start() {
         System.out.println("Игра началась! У каждого игрока по " + attempts + " попыток.");
         Random r = new Random();
         int targetNum = r.nextInt(1, 101);
 
-        start(targetNum);
-        System.out.println("Ходы " + player1.getName() + ": " + printAttempts(player1));
-        System.out.println("Ходы " + player2.getName() + ": " + printAttempts(player2));
+        startGameplay(targetNum);
+        printAttempts(player1);
+        printAttempts(player2);
         player1.clearNums();
         player2.clearNums();
     }
 
-    private void start(int targetNum) {
+    private void startGameplay(int targetNum) {
         Scanner scanner = new Scanner(System.in);
         for (int i = 1; i <= attempts; i++) {
-            play(player1, targetNum, i, scanner);
+            player1.setAttempt(i);
+            makeMove(player1, targetNum, scanner);
             if (player1.getNum() == targetNum) {
                 break;
             }
 
-            play(player2, targetNum, i, scanner);
+            player2.setAttempt(i);
+            makeMove(player2, targetNum, scanner);
             if (player2.getNum() == targetNum) {
                 break;
             }
@@ -45,27 +46,15 @@ public class GuessNumber {
         }
     }
 
-    private void play(Player player, int targetNum, int playerAttempts, Scanner scanner) {
-        enterNum(player, playerAttempts, scanner);
-
-        if (isGuessed(player, targetNum)) {
-            return;
-        }
-
-        hasAttempt(player);
+    private void makeMove(Player player, int targetNum, Scanner scanner) {
+        enterNum(player, scanner);
+        if (isGuessed(player, targetNum)) return;
+        checkAttempt(player);
     }
 
-    private void enterNum(Player player, int playerAttempts, Scanner scanner) {
+    private void enterNum(Player player, Scanner scanner) {
         System.out.println("Вводит " + player.getName() + ": ");
-        int playerNum = scanner.nextInt();
-        player.setAttempt(playerAttempts);
-        player.setNum(playerNum);
-    }
-
-    private void hasAttempt(Player player) {
-        if (player.getAttempt() == attempts) {
-            System.out.println("У " + player.getName() + " закончились попытки!");
-        }
+        player.setNum(scanner.nextInt());
     }
 
     private boolean isGuessed(Player player, int targetNum) {
@@ -87,7 +76,21 @@ public class GuessNumber {
         return false;
     }
 
-    String printAttempts(Player player) {
-        return Arrays.toString(player.getNums());
+    private void checkAttempt(Player player) {
+        if (player.getAttempt() == attempts) {
+            System.out.println("У " + player.getName() + " закончились попытки!");
+        }
+    }
+
+    void printAttempts(Player player) {
+        System.out.println("Ходы " + player.getName() + ":");
+        int length = player.getNums().length;
+        for (int i = 0; i < length; i++) {
+            System.out.print(player.getNums()[i] + " ");
+            if (i == length / 2 - 1) {
+                System.out.println();
+            }
+        }
+        System.out.println();
     }
 }
