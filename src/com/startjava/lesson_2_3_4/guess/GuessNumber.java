@@ -14,65 +14,58 @@ public class GuessNumber {
         player2 = new Player(name2);
     }
 
-    void start() {
+    void generate() {
         System.out.println("Игра началась! У каждого игрока по " + attempts + " попыток.");
         Random r = new Random();
         int targetNum = r.nextInt(1, 101);
 
-        checkNum(targetNum);
+        start(targetNum);
+        System.out.println("Ходы " + player1.getName() + ": " + printAttempts(player1));
+        System.out.println("Ходы " + player2.getName() + ": " + printAttempts(player2));
         player1.clearNums();
         player2.clearNums();
     }
 
-    private void checkNum(int targetNum) {
-        while (true) {
-            play(player1, targetNum);
+    private void start(int targetNum) {
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 1; i <= attempts; i++) {
+            play(player1, targetNum, i, scanner);
             if (player1.getNum() == targetNum) {
                 break;
             }
 
-            play(player2, targetNum);
+            play(player2, targetNum, i, scanner);
             if (player2.getNum() == targetNum) {
                 break;
             }
+        }
 
-            if (player1.getNum() != targetNum && player2.getNum() != targetNum) {
-                System.out.println("Никто не угадал число: " + targetNum);
-                break;
-            }
+        if (player1.getNum() != targetNum && player2.getNum() != targetNum) {
+            System.out.println("Никто не угадал число: " + targetNum);
         }
     }
 
-    private void play(Player player, int targetNum) {
-        int playerAttempts = 0;
-        while (player.getAttempt() < attempts) {
-            playerAttempts++;
-            enterNum(player, playerAttempts);
+    private void play(Player player, int targetNum, int playerAttempts, Scanner scanner) {
+        enterNum(player, playerAttempts, scanner);
 
-            if (!hasAttempt(player)) {
-                break;
-            }
-
-            if (isGuessed(player, targetNum)) {
-                break;
-            }
+        if (isGuessed(player, targetNum)) {
+            return;
         }
+
+        hasAttempt(player);
     }
 
-    private void enterNum(Player player, int playerAttempts) {
-        Scanner scanner = new Scanner(System.in);
+    private void enterNum(Player player, int playerAttempts, Scanner scanner) {
         System.out.println("Вводит " + player.getName() + ": ");
         int playerNum = scanner.nextInt();
         player.setAttempt(playerAttempts);
         player.setNum(playerNum);
     }
 
-    private boolean hasAttempt(Player player) {
+    private void hasAttempt(Player player) {
         if (player.getAttempt() == attempts) {
             System.out.println("У " + player.getName() + " закончились попытки!");
-            return false;
         }
-        return true;
     }
 
     private boolean isGuessed(Player player, int targetNum) {
@@ -80,7 +73,6 @@ public class GuessNumber {
         if (player.getNum() == targetNum) {
             System.out.println(player.getName() + " угадал число " + player.getNum() + " с " +
                     player.getAttempt() + "-й попытки!");
-            printAttempts(player);
             return true;
         }
 
@@ -95,7 +87,7 @@ public class GuessNumber {
         return false;
     }
 
-    void printAttempts(Player player) {
-        System.out.println(Arrays.toString(player.getNums()));
+    String printAttempts(Player player) {
+        return Arrays.toString(player.getNums());
     }
 }
