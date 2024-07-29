@@ -131,10 +131,11 @@ public class GuessNumber {
 
     void printResult(int counter1, int counter2, int counter3) {
         if (counter1 == counter2 && counter2 == counter3) {
-            System.out.println("По результатам 3-х раундов - НИЧЬЯ!");
             if (counter1 == 0) {
                 System.out.println("Никто не угадал даже одно число. Вы все проиграли!");
+                return;
             }
+            System.out.println("По результатам 3-х раундов - НИЧЬЯ!");
             return;
         }
 
