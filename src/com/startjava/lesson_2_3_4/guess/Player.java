@@ -16,7 +16,9 @@ public class Player {
     }
 
     void setNum(int num) {
-        nums[attempt - 1] = num;
+        if (num > 0 && num < 101) {
+            nums[attempt - 1] = num;
+        }
     }
 
     int getNum() {
