@@ -84,12 +84,8 @@ public class GuessNumber {
 
     void printAttempts(Player player) {
         System.out.println("Ходы " + player.getName() + ":");
-        int length = player.getNums().length;
-        for (int i = 0; i < length; i++) {
-            System.out.print(player.getNums()[i] + " ");
-            if (i == length / 2 - 1) {
-                System.out.println();
-            }
+        for (int i : player.getNums()) {
+            System.out.print(i + " ");
         }
         System.out.println();
     }
