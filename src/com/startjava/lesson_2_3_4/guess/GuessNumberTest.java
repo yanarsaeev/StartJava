@@ -9,8 +9,10 @@ public class GuessNumberTest {
         String name1 = scanner.nextLine();
         System.out.print("player2 name: ");
         String name2 = scanner.nextLine();
+        System.out.print("player3 name: ");
+        String name3 = scanner.nextLine();
 
-        GuessNumber game = new GuessNumber(name1, name2);
+        GuessNumber game = new GuessNumber(name1, name2, name3);
 
         String playerAnswer = "yes";
         while (!"no".equals(playerAnswer)) {
