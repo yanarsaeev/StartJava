@@ -6,6 +6,7 @@ public class Player {
     private final String name;
     private final int[] nums = new int[10];
     private int attempt;
+    private int win;
 
     public Player(String name) {
         this.name = name;
@@ -31,6 +32,14 @@ public class Player {
 
     void setAttempt(int attempt) {
         this.attempt = attempt;
+    }
+
+    void setWin() {
+        win++;
+    }
+
+    public int getWin() {
+        return win;
     }
 
     int[] getNums() {
