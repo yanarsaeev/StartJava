@@ -4,13 +4,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
-    private final Player[] players = new Player[3];
+    private final int PLAYERS_COUNT = 3;
+    private final Player[] players = new Player[PLAYERS_COUNT];
     private final int attempts = 10;
 
-    GuessNumber(String name1, String name2, String name3) {
-        players[0] = new Player(name1);
-        players[1] = new Player(name2);
-        players[2] = new Player(name3);
+    GuessNumber(String[] names) {
+        for (int i = 0; i < players.length; i++) {
+            players[i] = new Player(names[i]);
+        }
     }
 
     void start() {
@@ -35,51 +36,41 @@ public class GuessNumber {
 
     private void startGameplay(int targetNum, Random random) {
         Scanner scanner = new Scanner(System.in);
-        int firstPlayerCounter = 0;
-        int secondPlayerCounter = 0;
-        int thirdPlayerCounter = 0;
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= PLAYERS_COUNT; i++) {
             System.out.println("ROUND " + i);
+            boolean isWinner = false;
             for (int j = 1; j <= attempts; j++) {
-                players[0].setAttempt(j);
-                makeMove(players[0], targetNum, scanner);
-                if (players[0].getNum() == targetNum) {
-                    firstPlayerCounter++;
-                    break;
+                for (Player player : players) {
+                    player.setAttempt(j);
+                    makeMove(player, targetNum, scanner);
+                    if (player.getNum() == targetNum) {
+                        isWinner = true;
+                        player.setWin();
+                        break;
+                    }
                 }
-
-                players[1].setAttempt(j);
-                makeMove(players[1], targetNum, scanner);
-                if (players[1].getNum() == targetNum) {
-                    secondPlayerCounter++;
-                    break;
-                }
-
-                players[2].setAttempt(j);
-                makeMove(players[2], targetNum, scanner);
-                if (players[2].getNum() == targetNum) {
-                    thirdPlayerCounter++;
+                if (isWinner) {
                     break;
                 }
             }
-            if (players[0].getNum() != targetNum &&
-                    players[1].getNum() != targetNum &&
-                    players[2].getNum() != targetNum) {
+
+            if (!isWinner) {
                 System.out.println("Никто не угадал число: " + targetNum);
             }
 
-            printAttempts(players[0]);
-            printAttempts(players[1]);
-            printAttempts(players[2]);
+            for (Player player : players) {
+                printAttempts(player);
+            }
 
             System.out.println();
             targetNum = random.nextInt(1, 101);
         }
 
-        printResult(firstPlayerCounter, secondPlayerCounter, thirdPlayerCounter);
-        players[0].clearNums();
-        players[1].clearNums();
-        players[2].clearNums();
+        printResult();
+
+        for (Player player : players) {
+            player.clearNums();
+        }
     }
 
     private void makeMove(Player player, int targetNum, Scanner scanner) {
@@ -129,23 +120,21 @@ public class GuessNumber {
         System.out.println();
     }
 
-    void printResult(int counter1, int counter2, int counter3) {
-        if (counter1 == counter2 && counter2 == counter3) {
-            if (counter1 == 0) {
-                System.out.println("Никто не угадал даже одно число. Вы все проиграли!");
-                return;
+    void printResult() {
+        String name = "";
+        int max = 0;
+
+        for (Player player : players) {
+            if (player.getWin() > max) {
+                max = player.getWin();
+                name = player.getName();
             }
-            System.out.println("По результатам 3-х раундов - НИЧЬЯ!");
-            return;
         }
 
-        System.out.print("По итогу 3-х раундов - ВЫИГРАЛ ");
-        if (counter1 > counter2 && counter1 > counter3) {
-            System.out.println(players[0].getName());
-        } else if (counter2 > counter1 && counter2 > counter3) {
-            System.out.println(players[1].getName());
-        } else if (counter3 > counter1 && counter3 > counter2) {
-            System.out.println(players[2].getName());
+        if (max == 0) {
+            System.out.println("Никто не выиграл!");
+        } else {
+            System.out.println("ПОБЕДИТЕЛЬ - " + name);
         }
     }
 }
