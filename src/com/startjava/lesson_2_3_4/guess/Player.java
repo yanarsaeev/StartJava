@@ -3,6 +3,8 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Arrays;
 
 public class Player {
+    private static final int MAX_VALUE = 100;
+    private static final int MIN_VALUE = 0;
     private final String name;
     private final int[] nums = new int[10];
     private int attempt;
@@ -16,10 +18,12 @@ public class Player {
         return name;
     }
 
-    void setNum(int num) {
-        if (num > 0 && num < 101) {
+    boolean setNum(int num) {
+        if (num > MIN_VALUE && num < MAX_VALUE) {
             nums[attempt - 1] = num;
+            return true;
         }
+        return false;
     }
 
     int getNum() {
@@ -34,7 +38,7 @@ public class Player {
         this.attempt = attempt;
     }
 
-    void setWin() {
+    void incrementWin() {
         win++;
     }
 
