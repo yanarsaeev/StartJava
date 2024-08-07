@@ -9,7 +9,7 @@ public class Bookshelf {
     private final Book[] books = new Book[MAX_BOOKS];
 
     void addBook(Book book) {
-        if (booksCount == 10) {
+        if (booksCount == MAX_BOOKS) {
             System.out.println("В шкафу нет места.");
             return;
         }
