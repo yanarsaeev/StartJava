@@ -10,6 +10,7 @@ public class BookshelfTest {
             menu(bookshelf);
         } while (toWork());
     }
+
     private static void printMenu() {
         System.out.println("""
                 1. Посмотреть все книги
@@ -20,7 +21,6 @@ public class BookshelfTest {
                 6. Очистить шкаф
                 """);
     }
-
 
     private static void menu(Bookshelf bookshelf) {
         Scanner scanner = new Scanner(System.in);
@@ -47,6 +47,7 @@ public class BookshelfTest {
                 bookshelf.removeBook(scanner.nextLine());
             }
             case 6 -> bookshelf.cleanShelf();
+            default -> System.out.println("Введите цифру от 1 до 6");
         }
     }
 

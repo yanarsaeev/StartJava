@@ -19,5 +19,4 @@ public class Book {
     public String getName() {
         return name;
     }
-
 }
