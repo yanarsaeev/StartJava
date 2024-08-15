@@ -13,7 +13,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return author + ", " + name + ", " + year;
+        return STR."\{author}, \{name}, \{year}";
     }
 
     public String getName() {
