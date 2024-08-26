@@ -7,7 +7,7 @@ public class BookshelfTest {
         Bookshelf bookshelf = new Bookshelf();
         do {
             printMenu();
-            menu(bookshelf);
+            workMenu(bookshelf);
         } while (toWork());
     }
 
@@ -22,7 +22,7 @@ public class BookshelfTest {
                 """);
     }
 
-    private static void menu(Bookshelf bookshelf) {
+    private static void workMenu(Bookshelf bookshelf) {
         Scanner scanner = new Scanner(System.in);
         int option = scanner.nextInt();
         scanner.nextLine();
