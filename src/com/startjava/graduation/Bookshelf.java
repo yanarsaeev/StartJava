@@ -16,7 +16,7 @@ public class Bookshelf {
         booksCount++;
         shelfsCount--;
         books[booksCount - 1] = book;
-        System.out.println(STR."Книга \"\{book.getName()}\" успешно добавлена");
+        System.out.println("Книга " + book.getName() + " успешно добавлена");
     }
 
     void removeBook(String name) {
@@ -46,7 +46,7 @@ public class Bookshelf {
         boolean isBook = false;
         for (int i = 0; i < booksCount; i++) {
             if (name.equals(books[i].getName())) {
-                System.out.println(STR."Книга найдена: \{books[i].toString()}");
+                System.out.println("Книга найдена: " + books[i].toString());
                 isBook = true;
                 break;
             }
@@ -79,9 +79,9 @@ public class Bookshelf {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.");
             return;
         }
-        System.out.println(STR."В шкафу книг - \{booksCount}, свободно полок - \{shelfsCount}");
+        System.out.println("В шкафу книг - " + booksCount + ", свободно полок - " + shelfsCount);
         for (int i = 0; i < booksCount; i++) {
-            System.out.println(STR."| \{books[i].toString()}\n|--------------------------------------------|");
+            System.out.println("| " + books[i].toString() + "\n|--------------------------------------------|");
         }
         System.out.println("|                                            |");
     }
